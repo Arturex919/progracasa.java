@@ -129,6 +129,7 @@ public class JUEGO {
                 System.out.println("Defensa:"+defensa_2+"P");
                 System.out.println("Puntos de vida:"+lifepoint_2+"P");
                 System.out.println("habilidades:Golpe Cañon,Lanzallamas");
+                //colocas un radom para que la habilidades no tenga un solo valor y puedas bajar vida//
                 int ronda=1;
                 Random random= new Random();
                 while (jugador_1>0 &&jugador_2>0){
