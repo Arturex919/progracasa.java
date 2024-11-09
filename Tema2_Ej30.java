@@ -4,42 +4,43 @@ import java.util.Scanner;
 public class Tema2_Ej30 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int opciones;
+        char opciones;
+        boolean entrar=true;
         System.out.println("Bienvenido a la calculadora");
-        while (true) {
-            System.out.println("Ingrese el número de la operación que quiere realizar:");
-            System.out.println("1-Suma, 2-Resta, 3-Multiplicación, 4-División, 5-Resto, 0-Salir");
-
-            opciones = in.nextInt();
-            if (opciones == 0) {
-                System.out.println("Saliendo de la calculadora. ¡Gracias por usarla!");
-                break;
-            }
+        while (entrar) {
             double num1, num2;
             System.out.print("Ingrese el primer número: ");
             num1 = in.nextDouble();
             System.out.print("Ingrese el segundo número: ");
             num2 = in.nextDouble();
+            System.out.println("Ingrese el signo de la operación que quiere realizar:");
+            System.out.println(" + , - , * , / , % y 0 para Salir");
+            opciones = in.next().charAt(0);
 
+            //switch caracter '+'
             switch (opciones) {
-                case 1 -> {
+                case '0' ->{
+                    System.out.println("Saliendo de la calculadora. ¡Gracias por usarla!");
+                    entrar=false;
+                }
+                case '+' -> {
                     double suma;
                     suma = num1 + num2;
                     System.out.println("La suma de num1+num2");
                     System.out.println("La suma es : " + suma);
                 }
-                case 2 -> {
+                case '-'-> {
                     double resta;
                     resta = num1 - num2;
                     System.out.println("el resultado de la resta es : " + resta);
                 }
-                case 3 -> {
+                case '*' -> {
                     double Multiplicacion;
 
                     Multiplicacion = num1 * num2;
                     System.out.println("el resultado de la suma es : " + Multiplicacion);
                 }
-                case 4 -> {
+                case '/'-> {
                     double division;
                     if (num2 != 0) {
                         division = num1 / num2;
@@ -48,7 +49,7 @@ public class Tema2_Ej30 {
                         System.out.println("no se puede dividir en cero");
                     }
                 }
-                case 5 -> {
+                case '%' -> {
                     double resto;
                     if (num2 != 0) {
                         resto = num1 % num2;
@@ -57,7 +58,6 @@ public class Tema2_Ej30 {
                         System.out.println("errooooooor");
                     }
                 }
-
             }
         }
     }

@@ -11,6 +11,6 @@ public class Tema2_EJ25 {
         for ( i = 1; i <= a; i++) {
             fact = fact * i;
         }
-        System.out.println("el factorial del numeor es:" + fact);
+        System.out.println("el factorial del numero es:" + fact);
     }
 }
