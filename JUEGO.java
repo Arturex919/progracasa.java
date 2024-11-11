@@ -15,141 +15,155 @@ public class JUEGO {
         // y que lo pueda corregir en caso de que falle//
         switch (opciones) {
             case 'Y' -> {
-                //cree un booleano cin caracteristicas correcta para saber si lo datos
-                //que introducidos son correcto o no en caso de que no vuelve hasta que
-                //sean correcto, despues añadimos un do whilepara que este se pueda utilizar
-                //con el booleano//
-                boolean caracteristica_correctas, caracteriticas_correctas2;
-                do {
-                    caracteristica_correctas = true;
 
-                    System.out.println("ingrese la velocidad del Jugador 1");
-                    velocidad = in.nextInt();
-                    while (velocidad > 200 || velocidad < 1) {
-                        System.out.println("La velocidad no puede ser mayor de 200 ni menor que 1.");
-                        System.out.println("Intente de nuevo");
-                        System.out.print("Ingrese la velocidad del jugador 1: ");
+                    //cree un booleano cin caracteristicas correcta para saber si lo datos
+                    //que introducidos son correcto o no en caso de que no vuelve hasta que
+                    //sean correcto, despues añadimos un do whilepara que este se pueda utilizar
+                    //con el booleano//
+                    boolean caracteristica_correctas, caracteriticas_correctas2;
+                    do {
+                        caracteristica_correctas = true;
+
+                        System.out.println("ingrese la velocidad del Jugador 1");
                         velocidad = in.nextInt();
-                    }
-                    System.out.println("Ingrese la ataque del jugador 1");
-                    ataque = in.nextInt();
-                    while (ataque > 200 || ataque < 1) {
-                        System.out.println("el ataque no puede ser mayor de 200 ni menor que 1.");
-                        System.out.println("Intente de nuevo");
-                        System.out.print("Ingrese el ataque del jugador 1: ");
+                        while (velocidad > 200 || velocidad < 1) {
+                            System.out.println("La velocidad no puede ser mayor de 200 ni menor que 1.");
+                            System.out.println("Intente de nuevo");
+                            System.out.print("Ingrese la velocidad del jugador 1: ");
+                            velocidad = in.nextInt();
+                        }
+                        System.out.println("Ingrese la ataque del jugador 1");
                         ataque = in.nextInt();
-                    }
-                    System.out.println("ingrese la defensa del jugador 1");
-                    defensa = in.nextInt();
-                    while (defensa > 200 || defensa < 1) {
-                        System.out.println("La defensa no puede ser mayor de 200 ni menor que 1.");
-                        System.out.println("Intente de nuevo");
-                        System.out.print("Ingrese la defensa del jugador 1: ");
+                        while (ataque > 200 || ataque < 1) {
+                            System.out.println("el ataque no puede ser mayor de 200 ni menor que 1.");
+                            System.out.println("Intente de nuevo");
+                            System.out.print("Ingrese el ataque del jugador 1: ");
+                            ataque = in.nextInt();
+                        }
+                        System.out.println("ingrese la defensa del jugador 1");
                         defensa = in.nextInt();
-                    }
-                    System.out.println("ingrese la vida del jugador 1");
-                    lifepoint = in.nextInt();
-                    while (lifepoint > 200 || lifepoint < 1) {
-                        System.out.println("la vida no puede ser mayor de 200 ni menor que 1.");
-                        System.out.println("Intente de nuevo");
+                        while (defensa > 200 || defensa < 1) {
+                            System.out.println("La defensa no puede ser mayor de 200 ni menor que 1.");
+                            System.out.println("Intente de nuevo");
+                            System.out.print("Ingrese la defensa del jugador 1: ");
+                            defensa = in.nextInt();
+                        }
                         System.out.println("ingrese la vida del jugador 1");
                         lifepoint = in.nextInt();
-                    }
-                    jugador_1 = velocidad + ataque + defensa + lifepoint;
-                    if (jugador_1 > 500) {
-                        System.out.println("ERROR");
-                        System.out.println("ingrese correctamente los datos...");
-                        caracteristica_correctas = false;
-                    }
-                } while (!caracteristica_correctas);
-                System.out.println("FELICIDADES");
-                System.out.println("Su personaje tiene un total de: " + jugador_1 + "P");
-                System.out.println("Listo Empecemos el juego");
-                //iniciamos Jugador 2//
-                int jugador_2, velocidad_2 = 0, ataque_2 = 0, defensa_2 = 0, lifepoint_2 = 0;
-                do {
-                    caracteriticas_correctas2 = true;
-                    System.out.println("Ingrese la velocidad del Jugador 2");
-                    velocidad_2 = in.nextInt();
-                    while (velocidad_2 > 200 || velocidad_2 < 1) {
-                        System.out.println("La velocidad no puede ser mayor de 200 ni menor que 1.");
-                        System.out.println("Intente de nuevo");
-                        System.out.print("Ingrese la velocidad del jugador 2: ");
+                        while (lifepoint > 200 || lifepoint < 1) {
+                            System.out.println("la vida no puede ser mayor de 200 ni menor que 1.");
+                            System.out.println("Intente de nuevo");
+                            System.out.println("ingrese la vida del jugador 1");
+                            lifepoint = in.nextInt();
+                        }
+                        jugador_1 = velocidad + ataque + defensa + lifepoint;
+                        if (jugador_1 > 500) {
+                            System.out.println("ERROR");
+                            System.out.println("ingrese correctamente los datos...");
+                            caracteristica_correctas = false;
+                        }
+                    } while (!caracteristica_correctas);
+                    System.out.println("FELICIDADES");
+                    System.out.println("Su personaje tiene un total de: " + jugador_1 + "P");
+                    System.out.println("Listo Empecemos el juego");
+                    System.out.println();
+                    //iniciamos Jugador 2//
+                    int jugador_2, velocidad_2 = 0, ataque_2 = 0, defensa_2 = 0, lifepoint_2 = 0;
+                    do {
+                        caracteriticas_correctas2 = true;
+                        System.out.println("Ingrese la velocidad del Jugador 2");
                         velocidad_2 = in.nextInt();
-                    }
-                    System.out.println("ingrese la ataque del jugador 2");
-                    ataque_2 = in.nextInt();
-                    while (ataque_2 > 200 || ataque_2<1) {
-                        System.out.println("el ataque no puede ser mayor de 200 ni menor que 1.");
-                        System.out.println("Intente de nuevo");
-                        System.out.print("Ingrese el ataque del jugador 2: ");
+                        while (velocidad_2 > 200 || velocidad_2 < 1) {
+                            System.out.println("La velocidad no puede ser mayor de 200 ni menor que 1.");
+                            System.out.println("Intente de nuevo");
+                            System.out.print("Ingrese la velocidad del jugador 2: ");
+                            velocidad_2 = in.nextInt();
+                        }
+                        System.out.println("ingrese la ataque del jugador 2");
                         ataque_2 = in.nextInt();
-                    }
-                    System.out.println("ingrese la defensa del jugador 2:");
-                    defensa_2 = in.nextInt();
-                    while (defensa_2 > 200 || defensa_2 < 1) {
-                        System.out.println("La defensa no puede ser mayor de 200 ni menor que 1.");
-                        System.out.println("Intente de nuevo");
-                        System.out.print("Ingrese la defensa del jugador 2: ");
+                        while (ataque_2 > 200 || ataque_2 < 1) {
+                            System.out.println("el ataque no puede ser mayor de 200 ni menor que 1.");
+                            System.out.println("Intente de nuevo");
+                            System.out.print("Ingrese el ataque del jugador 2: ");
+                            ataque_2 = in.nextInt();
+                        }
+                        System.out.println("ingrese la defensa del jugador 2:");
                         defensa_2 = in.nextInt();
-                    }
-                    System.out.println("ingrese la vida del jugador 2");
-                    lifepoint_2 = in.nextInt();
-                    while (lifepoint_2 > 200 || lifepoint_2 < 1) {
-                        System.out.println("la vida no puede ser mayor de 200 ni menor que 1.");
-                        System.out.println("Intente de nuevo");
+                        while (defensa_2 > 200 || defensa_2 < 1) {
+                            System.out.println("La defensa no puede ser mayor de 200 ni menor que 1.");
+                            System.out.println("Intente de nuevo");
+                            System.out.print("Ingrese la defensa del jugador 2: ");
+                            defensa_2 = in.nextInt();
+                        }
                         System.out.println("ingrese la vida del jugador 2");
                         lifepoint_2 = in.nextInt();
-                    }
-                    jugador_2 = velocidad_2 + ataque_2 + defensa_2 + lifepoint_2;
-                    if (jugador_2 > 500) {
-                        System.out.println("ERROR");
-                        System.out.println("ingrese correctamente los datos...");
-                        caracteriticas_correctas2 = false;
-                    }
-                } while (!caracteriticas_correctas2);
-                System.out.println("FELICIDADES");
-                System.out.println("Su personaje tiene un total de: " + jugador_2 + "P");
-                System.out.println("Listo Empecemos el juego");
-                System.out.println("##############################################################################\n" +
-                        "#░█▀▄░▀█▀░█▀▀░█▀█░█░█░█▀▀░█▀█░▀█▀░█▀▄░█▀█░█▀▀░░░█▀█░█░░░░░▀▀█░█░█░█▀▀░█▀▀░█▀█#\n" +
-                        "#░█▀▄░░█░░█▀▀░█░█░▀▄▀░█▀▀░█░█░░█░░█░█░█░█░▀▀█░░░█▀█░█░░░░░░░█░█░█░█▀▀░█░█░█░█#\n" +
-                        "#░▀▀░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░░░▀░▀░▀▀▀░░░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀#\n" +
-                        "##############################################################################");
-                System.out.println("JUGADOR 1");
-                System.out.println("Velocidad:"+velocidad+"P");
-                System.out.println("Ataque:"+ataque+"P");
-                System.out.println("Defensa:"+defensa+"P");
-                System.out.println("Puntos de vida:"+lifepoint+"P");
-                System.out.println("");
-                System.out.println("");
-                System.out.println("JUGADOR 2");
-                System.out.println("Velocidad:"+velocidad_2+"P");
-                System.out.println("Ataque:"+ataque_2+"P");
-                System.out.println("Defensa:"+defensa_2+"P");
-                System.out.println("Puntos de vida:"+lifepoint_2+"P");
-                System.out.println("habilidades:Golpe Cañon,Lanzallamas");
-                //colocas un radom para que la habilidades no tenga un solo valor y puedas bajar vida//
-                int ronda=1;
-                Random random= new Random();
-                while (jugador_1>0 &&jugador_2>0){
+                        while (lifepoint_2 > 200 || lifepoint_2 < 1) {
+                            System.out.println("la vida no puede ser mayor de 200 ni menor que 1.");
+                            System.out.println("Intente de nuevo");
+                            System.out.println("ingrese la vida del jugador 2");
+                            lifepoint_2 = in.nextInt();
+                        }
+                        jugador_2 = velocidad_2 + ataque_2 + defensa_2 + lifepoint_2;
+                    } while (!caracteriticas_correctas2);
+                    System.out.println("FELICIDADES");
+                    System.out.println("Su personaje tiene un total de: " + jugador_2 + "P");
+                    System.out.println("Listo Empecemos el juego");
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+
+                    System.out.println("##############################################################################\n" +
+                            "#░█▀▄░▀█▀░█▀▀░█▀█░█░█░█▀▀░█▀█░▀█▀░█▀▄░█▀█░█▀▀░░░█▀█░█░░░░░▀▀█░█░█░█▀▀░█▀▀░█▀█#\n" +
+                            "#░█▀▄░░█░░█▀▀░█░█░▀▄▀░█▀▀░█░█░░█░░█░█░█░█░▀▀█░░░█▀█░█░░░░░░░█░█░█░█▀▀░█░█░█░█#\n" +
+                            "#░▀▀░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░░░▀░▀░▀▀▀░░░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀#\n" +
+                            "##############################################################################");
+                    System.out.println("JUGADOR 1");
+                    System.out.println("Velocidad:" + velocidad + "P");
+                    System.out.println("Ataque:" + ataque + "P");
+                    System.out.println("Defensa:" + defensa + "P");
+                    System.out.println("Puntos de vida:" + lifepoint + "P");
+                    System.out.println("");
+                    System.out.println("JUGADOR 2");
+                    System.out.println("Velocidad:" + velocidad_2 + "P");
+                    System.out.println("Ataque:" + ataque_2 + "P");
+                    System.out.println("Defensa:" + defensa_2 + "P");
+                    System.out.println("Puntos de vida:" + lifepoint_2 + "P");
+                    System.out.println("habilidades:Golpe Cañon,Lanzallamas");
+                    //colocas un radom para que la habilidades no tenga un solo valor y puedas bajar vida//
+                    int ronda = 1;
+                    Random random = new Random();
+
                     System.out.println("===========================================================================");
-                    System.out.println("-----------------RONDA"+ronda+"----------------");
+                    System.out.println("-----------------RONDA" + ronda + "----------------");
                     System.out.println("Jugador 1");
+
+                }
+                case 'N' -> {
+                    System.out.println("+============================================================================+\n" +
+                            "|░█░█░█▀█░█▀▀░▀█▀░█▀█░░░█░░░█▀█░░░█▀█░█▀▄░█▀█░█░█░▀█▀░█▄█░█▀█░█▀█░█▀█░█▀█░█▀█|\n" +
+                            "|░█▀█░█▀█░▀▀█░░█░░█▀█░░░█░░░█▀█░░░█▀▀░█▀▄░█░█░▄▀▄░░█░░█░█░█▀█░█▀█░█▀█░█▀█░█▀█|\n" +
+                            "|░▀░▀░▀░▀░▀▀▀░░▀░░▀░▀░░░▀▀▀░▀░▀░░░▀░░░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀░▀░▀░▀░▀░▀░▀░▀░▀░▀|\n" +
+                            "+============================================================================+");
+                }
+                default -> {
+                    System.out.println("opcion no valida");
                 }
             }
-            case 'N'->{
-                System.out.println("+============================================================================+\n" +
-                        "|░█░█░█▀█░█▀▀░▀█▀░█▀█░░░█░░░█▀█░░░█▀█░█▀▄░█▀█░█░█░▀█▀░█▄█░█▀█░█▀█░█▀█░█▀█░█▀█|\n" +
-                        "|░█▀█░█▀█░▀▀█░░█░░█▀█░░░█░░░█▀█░░░█▀▀░█▀▄░█░█░▄▀▄░░█░░█░█░█▀█░█▀█░█▀█░█▀█░█▀█|\n" +
-                        "|░▀░▀░▀░▀░▀▀▀░░▀░░▀░▀░░░▀▀▀░▀░▀░░░▀░░░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀░▀░▀░▀░▀░▀░▀░▀░▀░▀|\n" +
-                        "+============================================================================+");
-            }
-            default -> {
-                System.out.println("opcion no valida");
-            }
         }
-    }}
+    }
+
+
 
 
 
