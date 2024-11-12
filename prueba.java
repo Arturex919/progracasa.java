@@ -2,88 +2,57 @@ package Tema2_Ejercicos;
 
 import java.util.Random;
 import java.util.Scanner;
-
-import static java.lang.System.in;
-
 public class prueba {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        System.out.println("escoja su personaje");
-        int personajes;
-        personajes = in.nextInt();
-        switch (personajes) {
-            case 1 -> {
-                System.out.println("1.- EL DESCTRUCTOR");
-                System.out.println("DESTRUIR EL MUNDO QUIERO YO");
-                System.out.println("GRAAHHHHHWWW");
-                System.out.println("─────────▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄─────────\n" +
-                        "───────▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄───────\n" +
-                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                        "──────▐▒▒▒███▒▒▒▒▒▒▒▒███▒▒▒▌──────\n" +
-                        "▄▄────▐▒▒▒███▒▒▒▒▒▒▒▒███▒▒▒▌────▄▄\n" +
-                        "▌▒▀▄──▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──▄▀▒▐\n" +
-                        "▌▒▒▒▀▄█▒▒▒▄▀▄▄▀▀▄▄▀▀▄▄▀▄▒▒▒█▄▀▒▒▒▐\n" +
-                        "▀▄▒▒▒▒▐▒▒▐▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌▒▒▌▒▒▒▒▄▀\n" +
-                        "──▀▄▒▒▐▒▒▐▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌▒▒▌▒▒▄▀──\n" +
-                        "────▀▄▐▒▒▐▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌▒▒▌▄▀────\n" +
-                        "──────█▒▒▐▄▀▄▀▀▄▄▀▀▄▄▀▀▄▌▒▒█──────\n" +
-                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                        "──────▐▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▌──────\n" +
-                        "──────▐▒▒▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓▒▒▌──────\n" +
-                        "──────▐▒▒▒▒▒▒▓▓▄▀▀▄▓▓▒▒▒▒▒▒▌──────\n" +
-                        "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
-                        "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
-                        "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
-                        "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
-                        "───────▀▀▀▀▀▀▀▀────▀▀▀▀▀▀▀▀──────");
-                System.out.println("Habilidades: Destruccion Final,explosion,levitacion,autodestuccion");
-                System.out.println("Defensa:Coraza de lava(no los ataque de agua y hielo no le afecta)");
-                System.out.println("Habilidad Final:Veneno-Veneno (Te conviertes en Veneno por 3 turnos");
-                break;
-            }
-            case 2 -> {
-                System.out.println("2.- El Vini");
-                System.out.println("Quiero mi Balon");
-                System.out.println("BUABUABUAAAAAABUAAAAAA");
-                System.out.println("                                                                            \n" +
-                        "                                                                                       \n" +
-                        "                                        +*%%%%%%#.                                     \n" +
-                        "                                      -%@@@@@@@@@@@%%                                  \n" +
-                        "                                      #%====++**#@@@@%=                                \n" +
-                        "                                      .=+***####***#@@#                                \n" +
-                        "                                      -#%#**#%####%%#%                                 \n" +
-                        "                                      :*#*+=**%#+*###@                                 \n" +
-                        "                                      .+++=+##**####**                                 \n" +
-                        "                                       ++==+***#%%%*:                                  \n" +
-                        "                                        #**@%*##%%%#::                                 \n" +
-                        "                                  :::=*+%#%@@@%%%@%%#=**====--:.                       \n" +
-                        "                             :...:-:--=+-+@@@@@@%%%%#-===-=====+==:.                   \n" +
-                        "                          .  -.:----+===+=+*@@@%@%@%+==+++===++*++====*.               \n" +
-                        "                    :#+.:. ...-+++=++++++*+#*+*****++=====+++=+*#*+*++#%#*.            \n" +
-                        "                 :=++*@@+..+*****++++=+**+=#+=+*+=====--++*+++##**+#**@@@@%*.          \n" +
-                        "             .=+**#####%@@#+#+**%##+=--*+=+===--==-----====++##+-+#++@@@%###*          \n" +
-                        "           =+***#%%%@@%%%@@#*%%#%%%#*++-=####++++---*+**+=**:        =#%##%%+          \n" +
-                        "         =+******#%%-        +#%%%%*+*#%%++==--=======-==*#+         +#%#%%#           \n" +
-                        "        =%%%###***##=        -+#*+**#*=++@%%###*+*#**#*@%%+.         ..*%%-            \n" +
-                        "           #%%%#######       -=+**+-=+#++%++#*%#@%#%##%#**-          .---              \n" +
-                        "              %@%%%%####:    :==+==+=--=*+==++++==*#%%***++*#####*#%%=-                \n" +
-                        "                 +@@@%%%%#*: :-+**+++=*+--*#%++*+##+##*+*%*+-:=*#%%%%.                 \n" +
-                        "                     =@@@@%%#**+*+**+=+**#+--++***+=--**%@@@@@@@@%.                    \n" +
-                        "                          #@@%%@%%%%%####+++==++#***#***#+                             \n" +
-                        "                             =#@@@@@@%%#**+=++==+***=*+*+:                             \n" +
-                        "                             :=++**+###**++++==+*+==*+*+=:                             \n" +
-                        "                             -=+++=+****=*++*#*+=+#*++*++. ");
-                break;
+        //avanzado las rondas//
+        int jugador_1 =50,jugador_2 =50,lifepoint=50,lifepoint_2=50;
+        int ronda=1;
+        while(jugador_1>0 && jugador_2>0){
+            System.out.println("=====================================================");
+            System.out.println("-----------------  RONDA"+" "+ ronda+" ----------------");
+            System.out.println("JUGADOR 1: "+lifepoint);
+            System.out.println("Jugador 2:"+lifepoint_2);
+            System.out.println("Ingresa el nombre de tu personaje:");
+            String nombrePersonaje = in.nextLine();
 
-            }
-            default -> {
-                System.out.println("no valida");
+            // Mostrar el menú de opciones usando un switch
+            System.out.println("Selecciona una acción para " + nombrePersonaje + ":");
+            System.out.println("1. Atacar");
+            System.out.println("2. Defender");
+            System.out.println("3. Huir");
+
+            // Leer la opción del usuario
+            int opcion = in.nextInt();
+
+            // Utilizar switch para manejar las opciones
+            switch (opcion) {
+                case 1:
+                    System.out.println(nombrePersonaje + " ha elegido atacar.");
+                    // Aquí puedes agregar la lógica del ataque
+                    break;
+                case 2:
+                    System.out.println(nombrePersonaje + " se está defendiendo.");
+                    // Aquí puedes agregar la lógica de defensa
+                    break;
+                case 3:
+                    System.out.println(nombrePersonaje + " ha decidido huir.");
+                    // Aquí puedes agregar la lógica de huida
+                    break;
+                default:
+                    System.out.println("Opción no válida. Por favor, selecciona una opción correcta.");
+                    break;
             }
         }
-    }
-}
+        int cont=1;
+        while(cont<=23){
+            System.out.println("=====================================================");
+            System.out.println("-----------------  RONDA"+" "+ cont+" ----------------");
+            cont++;
+            System.out.println("Toca Enter para pasar la ronda");
+            in.nextLine();
+        }
+
+}}
+
+
