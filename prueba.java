@@ -1,16 +1,26 @@
 package Tema2_Ejercicos;
 
-import java.util.Random;
 import java.util.Scanner;
 public class prueba {
     public static void main(String[] args) {
-        Scanner in=new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
+                char opciones;
+                int opcions = 0;
+
+
+
+
+
+
         //avanzado las rondas//
-        int jugador_1 =50,jugador_2 =50,lifepoint=50,lifepoint_2=50;
+        int jugador_1=50,jugador_2 =50,lifepoint=50,lifepoint_2=50;
         int ronda=1;
+        int cont=1;
+        while (ronda<23){
         while(jugador_1>0 && jugador_2>0){
             System.out.println("=====================================================");
-            System.out.println("-----------------  RONDA"+" "+ ronda+" ----------------");
+            System.out.println("-----------------  RONDA"+cont+" " +" ----------------");
+            cont++;
             System.out.println("JUGADOR 1: "+lifepoint);
             System.out.println("Jugador 2:"+lifepoint_2);
             System.out.println("Ingresa el nombre de tu personaje:");
@@ -44,15 +54,8 @@ public class prueba {
                     break;
             }
         }
-        int cont=1;
-        while(cont<=23){
-            System.out.println("=====================================================");
-            System.out.println("-----------------  RONDA"+" "+ cont+" ----------------");
-            cont++;
-            System.out.println("Toca Enter para pasar la ronda");
-            in.nextLine();
-        }
 
-}}
+
+}}}
 
 
