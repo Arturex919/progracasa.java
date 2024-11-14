@@ -1,5 +1,6 @@
 package Tema2_Ejercicos;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Juego {public static void main(String[] args) {
@@ -135,6 +136,7 @@ public class Juego {public static void main(String[] args) {
                     System.out.println("2. Ataque");
                     System.out.println("3. Defensa");
                     System.out.println("4. Vida");
+                    System.out.println("5. Salir del menu");
                     int Corregir = in.nextInt();
 
                     switch (Corregir) {
@@ -153,6 +155,9 @@ public class Juego {public static void main(String[] args) {
                         case 4 -> {
                             System.out.println("Ingrese la nueva vida (entre 1 y 200): ");
                             lifepoint = in.nextInt();
+                        }
+                        case 5->{
+                            System.out.println("No se cambio ningun atributo");
                         }
                         default -> System.out.println("opcion no valida");
                     }
@@ -272,6 +277,7 @@ public class Juego {public static void main(String[] args) {
                                 System.out.println("2. Ataque");
                                 System.out.println("3. Defensa");
                                 System.out.println("4. Vida");
+                                System.out.println("5. Salir del menu");
                                 int Corregir_2 = in.nextInt();
 
                                 switch (Corregir_2) {
@@ -291,9 +297,12 @@ public class Juego {public static void main(String[] args) {
                                         System.out.println("Ingrese la nueva vida (entre 1 y 200): ");
                                         lifepoint_2 = in.nextInt();
                                     }
+                                    case 5-> {
+                                        System.out.println("No se cambio ningun atributo");
+                                    }
                                     default -> System.out.println("opcion no valida");
                                 }
-                                salir = true;
+
                             }
                             case 3->{
                                 System.out.println("##############################################################################\n" +
@@ -323,17 +332,39 @@ public class Juego {public static void main(String[] args) {
                                 System.out.println("");
                                 //creamos una ronda para que esta se vaya cambiando a medida de que se vaya avanzando el
                                 //juego para que cambien su valores en si//
-                                int ronda=1;
-                                int cont=23;
-                                while (ronda==23){
-                                while (jugador_1>0 && jugador_2>0) {
-                                    System.out.println("=====================================================");
-                                    System.out.println("-----------------  RONDA" + " " + ronda + " ----------------");
+                                boolean empieza;
+                                int daño, daño2;
+                                if (velocidad == velocidad_2) {
+                                    empieza = Math.random() < 0.5; // Empate de velocidad, elige al azar
+                                } else {
+                                    empieza = velocidad > velocidad_2; // El jugador más rápido ataca primero
                                 }
+                                int ronda=1 ;
+                                System.out.println("empieza la pelea");
+                                while (lifepoint >0 && lifepoint_2 >0){
+                                       System.out.println("=====================================================");
+                                       System.out.println("-------------- RONDA " + ronda + " ------------------");
+                                       daño=ataque_2-defensa;
+                                       if (empieza){
+                                    daño = Math.max(1, ataque - defensa_2 / 2);
+                                    lifepoint_2 -= daño;
+                                    System.out.println("Jugador 1 ataca a Jugador 2 y causa " + daño + " de daño.");
+                                    System.out.println("Vida de Jugador 2: " + Math.max(0, lifepoint_2) + "P");
+                                } else {
+                                    // Turno del jugador 2
+                                    daño = Math.max(1, ataque_2 - defensa / 2);
+                                    lifepoint -= daño;
+                                    System.out.println("Jugador 2 ataca a Jugador 1 y causa " + daño + " de daño.");
+                                    System.out.println("Vida de Jugador 1: " + Math.max(0, lifepoint) + "P");
                                 }
 
+                                // Cambiar de turno
+                                empieza = !empieza;
+                                ronda++;
 
-                                salir=true;
+
+                                   }
+                               }
 
                             }
                         }
@@ -396,4 +427,4 @@ public class Juego {public static void main(String[] args) {
     }*/
         }
     }
-}}
+}
