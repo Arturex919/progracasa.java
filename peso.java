@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class peso {
     public static void main(String[] args) {
-        Scanner in=new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         System.out.println("escoja su personaje");
         int personajes;
         personajes = in.nextInt();
@@ -77,10 +77,6 @@ public class peso {
                         "                             -=+++=+****=*++*#*+=+#*++*++. ");
                 break;
 
+
             }
-            default -> {
-                System.out.println("no valida");
-            }
-        }
-    }
-}
+        }}}
