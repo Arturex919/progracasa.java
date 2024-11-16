@@ -36,6 +36,7 @@ public class Juego {
             //NOTA AGG LAS OTRAS HABILIDADES//
             String personaje = "";
             String habilidad_final = "";
+            do {
             System.out.println("Seleccione a su personaje");
             System.out.println("1. Destructor");
             System.out.println("2. El vini");
@@ -122,6 +123,7 @@ public class Juego {
                     System.out.println("opcion invalida");
                 }
             }
+        } while (personajes < 1 || personajes > 3);
             System.out.println("Has seleccionado: " + personaje);
             System.out.println("Habilidad Final: " + habilidad_final);
             //cree un booleano con caracteristicas correcta para saber si lo datos
@@ -132,11 +134,13 @@ public class Juego {
             boolean caracteristica_correctas;
             do {
                 caracteristica_correctas = true;
-                if (!salir) {//sustituir a char
+                if (!salir) {
                     System.out.println("");
                     System.out.println("Toque 0 para salir o 1 para continuar");
                     sal = in.nextInt();
-
+                    if (sal==0){
+                        salir=true;
+                    }
                     System.out.println("ingrese la velocidad del Jugador 1");
                     velocidad = in.nextInt();
                     while (velocidad > 200 || velocidad < 1) {
@@ -276,93 +280,95 @@ public class Juego {
                         int jugador_2, velocidad_2 = 0, ataque_2 = 0, defensa_2 = 0, lifepoint_2 = 0;
                         String personaje2 = "";
                         String habilidad_final2 = "";
-                        System.out.println("Seleccione a su personaje");
-                        System.out.println("1. Destructor");
-                        System.out.println("2. El vini");
-                        System.out.println("3. Kong's");
-                        personajes = in.nextInt();
-                        switch (personajes) {
-                            case 1 -> {
-                                personaje2 = "Destructor";
-                                System.out.println("DESTRUIR EL MUNDO QUIERO YO");
-                                System.out.println("GRAAHHHHHWWW");
-                                System.out.println("─────────▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄─────────\n" +
-                                        "───────▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄───────\n" +
-                                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                                        "──────▐▒▒▒███▒▒▒▒▒▒▒▒███▒▒▒▌──────\n" +
-                                        "▄▄────▐▒▒▒███▒▒▒▒▒▒▒▒███▒▒▒▌────▄▄\n" +
-                                        "▌▒▀▄──▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──▄▀▒▐\n" +
-                                        "▌▒▒▒▀▄█▒▒▒▄▀▄▄▀▀▄▄▀▀▄▄▀▄▒▒▒█▄▀▒▒▒▐\n" +
-                                        "▀▄▒▒▒▒▐▒▒▐▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌▒▒▌▒▒▒▒▄▀\n" +
-                                        "──▀▄▒▒▐▒▒▐▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌▒▒▌▒▒▄▀──\n" +
-                                        "────▀▄▐▒▒▐▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌▒▒▌▄▀────\n" +
-                                        "──────█▒▒▐▄▀▄▀▀▄▄▀▀▄▄▀▀▄▌▒▒█──────\n" +
-                                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                                        "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
-                                        "──────▐▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▌──────\n" +
-                                        "──────▐▒▒▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓▒▒▌──────\n" +
-                                        "──────▐▒▒▒▒▒▒▓▓▄▀▀▄▓▓▒▒▒▒▒▒▌──────\n" +
-                                        "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
-                                        "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
-                                        "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
-                                        "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
-                                        "───────▀▀▀▀▀▀▀▀────▀▀▀▀▀▀▀▀──────");
-                                habilidad_final2 = "Habilidad Final:Veneno-Veneno";
-                            }
-                            case 2 -> {
-                                personaje2 = "el vini";
-                                habilidad_final2 = "Habilidad Final:Falsa ";
+                        do {
+                            System.out.println("Seleccione a su personaje");
+                            System.out.println("1. Destructor");
+                            System.out.println("2. El vini");
+                            System.out.println("3. Kong's");
+                            personajes = in.nextInt();
+                            switch (personajes) {
+                                case 1 -> {
+                                    personaje2 = "Destructor";
+                                    System.out.println("DESTRUIR EL MUNDO QUIERO YO");
+                                    System.out.println("GRAAHHHHHWWW");
+                                    System.out.println("─────────▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄─────────\n" +
+                                            "───────▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄───────\n" +
+                                            "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                            "──────▐▒▒▒███▒▒▒▒▒▒▒▒███▒▒▒▌──────\n" +
+                                            "▄▄────▐▒▒▒███▒▒▒▒▒▒▒▒███▒▒▒▌────▄▄\n" +
+                                            "▌▒▀▄──▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──▄▀▒▐\n" +
+                                            "▌▒▒▒▀▄█▒▒▒▄▀▄▄▀▀▄▄▀▀▄▄▀▄▒▒▒█▄▀▒▒▒▐\n" +
+                                            "▀▄▒▒▒▒▐▒▒▐▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌▒▒▌▒▒▒▒▄▀\n" +
+                                            "──▀▄▒▒▐▒▒▐▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌▒▒▌▒▒▄▀──\n" +
+                                            "────▀▄▐▒▒▐▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌▒▒▌▄▀────\n" +
+                                            "──────█▒▒▐▄▀▄▀▀▄▄▀▀▄▄▀▀▄▌▒▒█──────\n" +
+                                            "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                            "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                            "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                            "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                            "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                            "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                            "──────▐▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▌──────\n" +
+                                            "──────▐▒▒▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓▒▒▌──────\n" +
+                                            "──────▐▒▒▒▒▒▒▓▓▄▀▀▄▓▓▒▒▒▒▒▒▌──────\n" +
+                                            "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
+                                            "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
+                                            "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
+                                            "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
+                                            "───────▀▀▀▀▀▀▀▀────▀▀▀▀▀▀▀▀──────");
+                                    habilidad_final2 = "Habilidad Final:Veneno-Veneno";
+                                }
+                                case 2 -> {
+                                    personaje2 = "el vini";
+                                    habilidad_final2 = "Habilidad Final:Falsa ";
 
-                            }
-                            case 3 -> {
-                                personaje2 = "Kong`s";
-                                System.out.println("──────▄████████▄────────\n" +
-                                        "─────────────▄█▀▒▒▒▒▒▒▒▀██▄──────\n" +
-                                        "───────────▄█▀▒▒▒▒▒▒▒▒▒▒▒██──────\n" +
-                                        "─────────▄█▀▒▒▒▒▒▒▄▒▒▒▒▒▒▐█▌─────\n" +
-                                        "────────▄█▒▒▒▒▒▒▒▒▀█▒▒▒▒▒▐█▌─────\n" +
-                                        "───────▄█▒▒▒▒▒▒▒▒▒▒▀█▒▒▒▄██──────\n" +
-                                        "──────▄█▒▒▒▒▒▒▒▒▒▒▒▒▀█▒▄█▀█▄─────\n" +
-                                        "─────▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▀▒▒▒█▄────\n" +
-                                        "────▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▄───\n" +
-                                        "───▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▄──\n" +
-                                        "──▄█▒▒▒▄██████▄▒▒▒▒▄█████▄▒▒▒▒█──\n" +
-                                        "──█▒▒▒█▀░░░░░▀█─▒▒▒█▀░░░░▀█▒▒▒█──\n" +
-                                        "──█▒▒▒█░░▄░░░░▀████▀░░░▄░░█▒▒▒█──\n" +
-                                        "▄███▄▒█▄░▐▀▄░░░░░░░░░▄▀▌░▄█▒▒███▄\n" +
-                                        "█▀░░█▄▒█░▐▐▀▀▄▄▄─▄▄▄▀▀▌▌░█▒▒█░░▀█\n" +
-                                        "█░░░░█▒█░▐▐──▄▄─█─▄▄──▌▌░█▒█░░░░█\n" +
-                                        "█░▄░░█▒█░▐▐▄─▀▀─█─▀▀─▄▌▌░█▒█░░▄░█\n" +
-                                        "█░░█░█▒█░░▌▄█▄▄▀─▀▄▄█▄▐░░█▒█░█░░█\n" +
-                                        "█▄░█████████▀░░▀▄▀░░▀█████████░▄█\n" +
-                                        "─██▀░░▄▀░░▀░░▀▄░░░▄▀░░▀░░▀▄░░▀██\n" +
-                                        "██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██\n" +
-                                        "█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n" +
-                                        "█░▄░░░░░░░░░░░░░░░░░░░░░░░░░░░▄░█\n" +
-                                        "█░▀█▄░░░░░░░░░░░░░░░░░░░░░░░▄█▀░█\n" +
-                                        "█░░█▀███████████████████████▀█░░█\n" +
-                                        "█░░█────█───█───█───█───█────█░░█\n" +
-                                        "█░░▀█───█───█───█───█───█───█▀░░█\n" +
-                                        "█░░░▀█▄▄█▄▄▄█▄▄▄█▄▄▄█▄▄▄█▄▄█▀░░░█\n" +
-                                        "▀█░░░█──█───█───█───█───█──█░░░█▀\n" +
-                                        "─▀█░░▀█▄█───█───█───█───█▄█▀░░█▀─\n" +
-                                        "──▀█░░░▀▀█▄▄█───█───█▄▄█▀▀░░░█▀──\n" +
-                                        "───▀█░░░░░▀▀█████████▀▀░░░░░█▀───\n" +
-                                        "────▀█░░░░░▄░░░░░░░░░▄░░░░░█▀────\n" +
-                                        "─────▀██▄░░░▀▀▀▀▀▀▀▀▀░░░▄██▀─────\n" +
-                                        "────────▀██▄▄░░░░░░░▄▄██▀────────\n" +
-                                        "───────────▀▀███████▀▀───────────");
-                                habilidad_final2 = "Habilidad Final: Llama a sus Gangs";
+                                }
+                                case 3 -> {
+                                    personaje2 = "Kong`s";
+                                    System.out.println("──────▄████████▄────────\n" +
+                                            "─────────────▄█▀▒▒▒▒▒▒▒▀██▄──────\n" +
+                                            "───────────▄█▀▒▒▒▒▒▒▒▒▒▒▒██──────\n" +
+                                            "─────────▄█▀▒▒▒▒▒▒▄▒▒▒▒▒▒▐█▌─────\n" +
+                                            "────────▄█▒▒▒▒▒▒▒▒▀█▒▒▒▒▒▐█▌─────\n" +
+                                            "───────▄█▒▒▒▒▒▒▒▒▒▒▀█▒▒▒▄██──────\n" +
+                                            "──────▄█▒▒▒▒▒▒▒▒▒▒▒▒▀█▒▄█▀█▄─────\n" +
+                                            "─────▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▀▒▒▒█▄────\n" +
+                                            "────▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▄───\n" +
+                                            "───▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▄──\n" +
+                                            "──▄█▒▒▒▄██████▄▒▒▒▒▄█████▄▒▒▒▒█──\n" +
+                                            "──█▒▒▒█▀░░░░░▀█─▒▒▒█▀░░░░▀█▒▒▒█──\n" +
+                                            "──█▒▒▒█░░▄░░░░▀████▀░░░▄░░█▒▒▒█──\n" +
+                                            "▄███▄▒█▄░▐▀▄░░░░░░░░░▄▀▌░▄█▒▒███▄\n" +
+                                            "█▀░░█▄▒█░▐▐▀▀▄▄▄─▄▄▄▀▀▌▌░█▒▒█░░▀█\n" +
+                                            "█░░░░█▒█░▐▐──▄▄─█─▄▄──▌▌░█▒█░░░░█\n" +
+                                            "█░▄░░█▒█░▐▐▄─▀▀─█─▀▀─▄▌▌░█▒█░░▄░█\n" +
+                                            "█░░█░█▒█░░▌▄█▄▄▀─▀▄▄█▄▐░░█▒█░█░░█\n" +
+                                            "█▄░█████████▀░░▀▄▀░░▀█████████░▄█\n" +
+                                            "─██▀░░▄▀░░▀░░▀▄░░░▄▀░░▀░░▀▄░░▀██\n" +
+                                            "██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██\n" +
+                                            "█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n" +
+                                            "█░▄░░░░░░░░░░░░░░░░░░░░░░░░░░░▄░█\n" +
+                                            "█░▀█▄░░░░░░░░░░░░░░░░░░░░░░░▄█▀░█\n" +
+                                            "█░░█▀███████████████████████▀█░░█\n" +
+                                            "█░░█────█───█───█───█───█────█░░█\n" +
+                                            "█░░▀█───█───█───█───█───█───█▀░░█\n" +
+                                            "█░░░▀█▄▄█▄▄▄█▄▄▄█▄▄▄█▄▄▄█▄▄█▀░░░█\n" +
+                                            "▀█░░░█──█───█───█───█───█──█░░░█▀\n" +
+                                            "─▀█░░▀█▄█───█───█───█───█▄█▀░░█▀─\n" +
+                                            "──▀█░░░▀▀█▄▄█───█───█▄▄█▀▀░░░█▀──\n" +
+                                            "───▀█░░░░░▀▀█████████▀▀░░░░░█▀───\n" +
+                                            "────▀█░░░░░▄░░░░░░░░░▄░░░░░█▀────\n" +
+                                            "─────▀██▄░░░▀▀▀▀▀▀▀▀▀░░░▄██▀─────\n" +
+                                            "────────▀██▄▄░░░░░░░▄▄██▀────────\n" +
+                                            "───────────▀▀███████▀▀───────────");
+                                    habilidad_final2 = "Habilidad Final: Llama a sus Gangs";
 
+                                }
+                                default -> {
+                                    System.out.println("opcion invalida,Seleccione un numero del 1 al 4");
+                                }
                             }
-                            default -> {
-                                System.out.println("opcion invalida");
-                            }
-                        }
+                        }while (personajes < 1 || personajes > 4);
                         System.out.println("Has seleccionado: " + personaje2);
                         System.out.println("Habilidad Final: " + habilidad_final2);
                         boolean caracteristica_correctas2;
@@ -395,8 +401,6 @@ public class Juego {
                                 System.out.print("Ingrese la defensa del jugador 2: ");
                                 defensa_2 = in.nextInt();
                             }
-
-                            System.out.println("");
                             System.out.println("ingrese la vida del jugador 2");
                             lifepoint_2 = in.nextInt();
                             while (lifepoint_2 > 200 || lifepoint_2 < 1) {
@@ -544,7 +548,7 @@ public class Juego {
                                         System.out.println("");
                                         if (turnoJugador1) {
                                             System.out.println("Player 1:");
-                                            System.out.println("- Que deseas hacer:");
+                                            System.out.println("¿Que deseas hacer?");
                                             System.out.println("1.Atacar");
                                             System.out.println("2.Defensa");
                                             System.out.println("3.Habilidad final");
@@ -664,8 +668,7 @@ public class Juego {
                                                 case 3 -> {
                                                     System.out.println("El jugador utilizo su Habilidad final." + habilidad_final);
                                                     if (conthabilidadfinal > 0) {
-                                                /* total_danio = Math.max(0, danio - random.nextInt(3));
-                                                    lifepoint_2 -= total_danio;*/
+
                                                         int habilidad_finaldanio2 = Math.max(0, (int) (100 * 0.40) + random.nextInt(5) + 3);
                                                         lifepoint_2 -= habilidad_finaldanio2;
                                                         System.out.println("La habilidad final causó " + habilidad_finaldanio2 + " de daño.");
@@ -840,44 +843,45 @@ public class Juego {
                                                 fin_del_juego = true;
                                             }
                                         }
+                                        turnoJugador1 = !turnoJugador1;
                                         if (!fin_del_juego) {
-                                            turnoJugador1 = !turnoJugador1;
                                             ronda++;
                                         }
                                     }
                                 }
+                                case 4 -> {
+                                    System.out.println("Salir");
+                                    salir = true;
+                                }
+                                default -> {
+                                    System.out.println("opcion invalida");
+                                }
                             }
                         }
+                        salir = true;
+                    }
+                    case 4 -> {
+                        System.out.println("Salir");
+                        salir = true;
+                    }
+                    default -> {
+                        System.out.println("opcion invalida");
                     }
                 }
+                salir = true;
             }
-        }salir=true;
-    };
-}
+        } else {
 
-
-
-
-/*
--
-
-            System.out.println("##############################################################################\n" +
-                    "#░█▀▄░▀█▀░█▀▀░█▀█░█░█░█▀▀░█▀█░▀█▀░█▀▄░█▀█░█▀▀░░░█▀█░█░░░░░▀▀█░█░█░█▀▀░█▀▀░█▀█#\n" +
-                    "#░█▀▄░░█░░█▀▀░█░█░▀▄▀░█▀▀░█░█░░█░░█░█░█░█░▀▀█░░░█▀█░█░░░░░░░█░█░█░█▀▀░█░█░█░█#\n" +
-                    "#░▀▀░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░░░▀░▀░▀▀▀░░░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀#\n" +
-                    "##############################################################################");
-
-        }
-        case 'N' -> {
             System.out.println("+============================================================================+\n" +
                     "|░█░█░█▀█░█▀▀░▀█▀░█▀█░░░█░░░█▀█░░░█▀█░█▀▄░█▀█░█░█░▀█▀░█▄█░█▀█░█▀█░█▀█░█▀█░█▀█|\n" +
                     "|░█▀█░█▀█░▀▀█░░█░░█▀█░░░█░░░█▀█░░░█▀▀░█▀▄░█░█░▄▀▄░░█░░█░█░█▀█░█▀█░█▀█░█▀█░█▀█|\n" +
                     "|░▀░▀░▀░▀░▀▀▀░░▀░░▀░▀░░░▀▀▀░▀░▀░░░▀░░░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀░▀░▀░▀░▀░▀░▀░▀░▀░▀|\n" +
                     "+============================================================================+");
         }
-        default -> {
-            System.out.println("opcion no valida");
-        }
-    }*/
+    }
+}
+
+
+
 
 
