@@ -1270,7 +1270,8 @@ public class Juego_Final {
                                                                         "|██╔════╝ ██╔══██╗████╗  ██║██╔══██╗                                                                                                               |\n" +
                                                                         "|██║  ███╗███████║██╔██╗ ██║███████║                                                                                                               |\n" +
                                                                         "|██║   ██║██╔══██║██║╚██╗██║██╔══██║                                                                                                               |\n" +
-                                                                        "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║      ");                                                 fin_del_juego = false;
+                                                                        "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║      ");
+                                                                fin_del_juego = false;
                                                             }
                                                         }
                                                         case 4 -> {
@@ -1597,9 +1598,11 @@ public class Juego_Final {
                                                     ronda++;
                                                 }
                                             }
-                                            if (fin_del_juego) {
-                                            ronda++;
+                                            //que te vean los de las rondas
+                                            if (lifepoint <= 0 || lifepoint_2 <= 0) {
+                                                fin_del_juego = true;
                                             }
+                                            ronda++;
                                         }
                                     }
                                     case 4->{
