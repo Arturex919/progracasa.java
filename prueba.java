@@ -10,151 +10,40 @@ public class prueba{
         Random random = new Random();
 
         // Atributos básicos
-        int lifepoint_1 = 100, lifepoint_2 = 100; // Puntos de vida iniciales de ambos jugadores
-        int defensa_1 = 20, ataque_1 = 50; // Atributos de Jugador 1
+        int lifepoint= 100, lifepoint_2 = 100; // Puntos de vida iniciales de ambos jugadores
+        int defensa = 20, ataque = 50; // Atributos de Jugador 1
         int defensa_2 = 20, ataque_2 = 50; // Atributos de Jugador 2
 
-        // Selección de personaje
-        System.out.println("Elige tu personaje (Jugador 1):");
-        System.out.println("1. Guerrero (Habilidad final: Corte letal)");
-        System.out.println("2. Mago (Habilidad final: Bola de fuego)");
-        System.out.println("3. Asesino (Habilidad final: Golpe crítico)");
-        System.out.println("4. Tanque (Habilidad final: Escudo impenetrable)");
-        int personaje1 = in.nextInt();
-
-        System.out.println("Elige tu personaje (Jugador 2):");
-        System.out.println("1. Guerrero (Habilidad final: Corte letal)");
-        System.out.println("2. Mago (Habilidad final: Bola de fuego)");
-        System.out.println("3. Asesino (Habilidad final: Golpe crítico)");
-        System.out.println("4. Tanque (Habilidad final: Escudo impenetrable)");
-        int personaje2 = in.nextInt();
-
-        boolean finDelJuego = false;
-
-        while (!finDelJuego) {
-            // Turno del Jugador 1
-            System.out.println("Turno de Jugador 1:");
-            System.out.println("1. Atacar");
-            System.out.println("2. Defenderse");
-            System.out.println("3. Usar habilidad final");
-
-            int opcion1 = in.nextInt();
-
-            switch (opcion1) {
-                case 1 -> {
-                    System.out.println("Jugador 1 ataca a Jugador 2.");
-                    int danio = ataque_1 - (defensa_2 / 2);
-                    int total_danio = Math.max(0, danio - random.nextInt(3));
-                    lifepoint_2 -= total_danio;
-                    System.out.println("Jugador 1 causó " + total_danio + " de daño.");
-                }
-                case 2 -> {
-                    System.out.println("Jugador 1 decide defenderse.");
-                    int defensaExtra = (int) (defensa_1 * 0.1); // Incremento del 10% en defensa
-                    defensa_1 += defensaExtra;
-
-                    // Penalización del 5% de vida
-                    int vidaPerdida = (int) (lifepoint_1 * 0.05);
-                    lifepoint_1 -= vidaPerdida;
-
-                    System.out.println("Defensa aumentada en " + defensaExtra + " puntos.");
-                    System.out.println("Jugador 1 perdió " + vidaPerdida + " puntos de vida al defenderse.");
-                }
-                case 3 -> {
-                    System.out.println("Jugador 1 usa su habilidad final:");
-                    switch (personaje1) {
-                        case 1 -> {
-                            System.out.println("Corte letal: Jugador 1 causa un daño masivo.");
-                            lifepoint_2 -= 40; // Daño fijo
-                        }
-                        case 2 -> {
-                            System.out.println("Bola de fuego: Jugador 1 lanza una poderosa bola de fuego.");
-                            lifepoint_2 -= 35; // Daño medio
-                        }
-                        case 3 -> {
-                            System.out.println("Golpe crítico: Jugador 1 ejecuta un ataque con un daño crítico.");
-                            lifepoint_2 -= 50; // Daño alto
-                        }
-                        case 4 -> {
-                            System.out.println("Escudo impenetrable: Jugador 1 reduce el daño recibido un 50% por 1 turno.");
-                            defensa_1 += 30; // Incremento temporal en defensa
-                        }
-                        default -> System.out.println("Habilidad desconocida.");
-                    }
-                }
-                default -> System.out.println("Opción no válida.");
-            }
-
-            // Verificar si el Jugador 2 fue derrotado
-            if (lifepoint_2 <= 0) {
-                System.out.println("¡Jugador 1 gana!");
-                break;
-            }
-
-            // Turno del Jugador 2
-            System.out.println("Turno de Jugador 2:");
-            System.out.println("1. Atacar");
-            System.out.println("2. Defenderse");
-            System.out.println("3. Usar habilidad final");
-
-            int opcion2 = in.nextInt();
-
-            switch (opcion2) {
-                case 1 -> {
-                    System.out.println("Jugador 2 ataca a Jugador 1.");
-                    int danio = ataque_2 - (defensa_1 / 2);
-                    int total_danio = Math.max(0, danio - random.nextInt(3));
-                    lifepoint_1 -= total_danio;
-                    System.out.println("Jugador 2 causó " + total_danio + " de daño.");
-                }
-                case 2 -> {
-                    System.out.println("Jugador 2 decide defenderse.");
-                    int defensaExtra = (int) (defensa_2 * 0.1); // Incremento del 10% en defensa
-                    defensa_2 += defensaExtra;
-
-                    // Penalización del 5% de vida
-                    int vidaPerdida = (int) (lifepoint_2 * 0.05);
-                    lifepoint_2 -= vidaPerdida;
-
-                    System.out.println("Defensa aumentada en " + defensaExtra + " puntos.");
-                    System.out.println("Jugador 2 perdió " + vidaPerdida + " puntos de vida al defenderse.");
-                }
-                case 3 -> {
-                    System.out.println("Jugador 2 usa su habilidad final:");
-                    switch (personaje2) {
-                        case 1 -> {
-                            System.out.println("Corte letal: Jugador 2 causa un daño masivo.");
-                            lifepoint_1 -= 40; // Daño fijo
-                        }
-                        case 2 -> {
-                            System.out.println("Bola de fuego: Jugador 2 lanza una poderosa bola de fuego.");
-                            lifepoint_1 -= 35; // Daño medio
-                        }
-                        case 3 -> {
-                            System.out.println("Golpe crítico: Jugador 2 ejecuta un ataque con un daño crítico.");
-                            lifepoint_1 -= 50; // Daño alto
-                        }
-                        case 4 -> {
-                            System.out.println("Escudo impenetrable: Jugador 2 reduce el daño recibido un 50% por 1 turno.");
-                            defensa_2 += 30; // Incremento temporal en defensa
-                        }
-                        default -> System.out.println("Habilidad desconocida.");
-                    }
-                }
-                default -> System.out.println("Opción no válida.");
-            }
-
-            // Verificar si el Jugador 1 fue derrotado
-            if (lifepoint_1 <= 0) {
-                System.out.println("¡Jugador 2 gana!");
-                break;
-            }
-
-            // Mostrar estados actuales
-            System.out.println("Vida Jugador 1: " + lifepoint_1);
-            System.out.println("Vida Jugador 2: " + lifepoint_2);
-        }
-
-        in.close();
-    }
-}
+        System.out.println(".   :%. .. .    . .    .  .    .  .    .  \n" +
+                " .       .       .       .       . . t;% %88@SS8.   .     .      .       .      \n" +
+                "   .  .    .  .    .  .    .  .   . S;.:....:;;8t8..   .    . .    .  .    .  . \n" +
+                "  .    .  .    .  .    .  .    .  . 8;;8888X;:..S;. .    .      .   .   .   .   \n" +
+                "    .       .       .       .     . 8.;@8St   S::.. . .    .  .   .   .   .    .\n" +
+                "  .   . .    .  .    .  .    .  .  .;8  .8:%@:tS@:8 .   .       .       .    .  \n" +
+                "    .     .    .  .    .  .    .  . ; 8888@888X8S%8..     . .      . .     .    \n" +
+                "  .    .   .       .       .        .t88; 8S888888@ .  .      .  .     .     .  \n" +
+                "     .   .   .  .    .  .    .  . . .;.@888:%88S88S. .   .  .   .   .    . .   .\n" +
+                "  .    .      .   .   .   .   .    . S8X@@S.8888@t .      .   .   .   .      .  \n" +
+                "    .     . .   .   .   .   .    . . X;8:@8888SX8... . .                .  .    \n" +
+                "  .   .           .       .    .   .S%;@tX@88X8XX;tXS  8t. . .  .  . .    .   . \n" +
+                "    .   . .  . .     . .    . . ;@%;8.:88%;t88%8888X8888% @      .     .        \n" +
+                "  .         .    .       .  :@X8X% S88 XXS%tSS88@XS@SX8 @XXS8t..    .   .  . .  \n" +
+                "     . .  .    .   . ...  t8XS8t.S 8S@S;8t;%%@8SS88%88888X888XX 8..   .        .\n" +
+                "  .          .      .  ;8t@X8 88XX8888S 8.S;t;:8;8X8%8X@@:88t888@. . .   .  .   \n" +
+                "    .  . . .    . . t@ :%;S88;;8t@88888S8%X:%XS.8@8@8888888.t8888@ %.  .   .  . \n" +
+                "  .           .  :8;Xt 8@8t%.:t%%88S8XXt8;88:888@@%@88888X;888 8.%@8SS.  .      \n" +
+                "    . .  .  . . 8X  %8%8@t88:88%% 88 8.S.88X@8@SXS8X88S@88.t8%8:.:8X@X .    .  .\n" +
+                "  .       .  .8@  ;888X8SSt888:888@@@88:8.@@S XSX@8X@;88XS::t %S:@@88; .  .     \n" +
+                "     . .   .@8   .%8;%@8XSt8@t8@S@%88@8@888888888%8888S@ .  . %:@SX@@X .    . . \n" +
+                "  .      . S %St;8S888 .:  . 8888888%@tSS8@SX8XS S@8888% .  . 8:8S8%: .  .      \n" +
+                "    .  . . :888@XS@8@.t...  .8XS:t@@ 8%@8888.8S8%8XX88 :. . . 8 8XS; .    .  .  \n" +
+                "  .        .;;88888@S@X%. ..  .888XX@:88 8@%8888X@8X::8..%8X::t%t;8..   .      .\n" +
+                "    . . .   .  8.%888S88  . . 88@@8  S:.%X88XSXt%8;:@8%:X@@S;t8X;:.   .   . .   \n" +
+                "  .       .  ...8S8%S8X@S @..:@888888 @888;%%.S8t@X8t 8 .8888@S:;   .         . \n" +
+                "     .  .       .  8XX.;@@8 S 88 8SXt.888t8%8888.8@8SSXX@8@SX t   .    . . .    \n" +
+                "  .       .   .    .:;8;::88@@: .S%8.88@  S88t@8%Xt@8%.t;. 88        .       .  \n" +
+                "    . .    .     .     .X .Xt@@@888X%.St8%S8t88tt;8 X%;%t%.:   .  .     .  .   .\n" +
+                "  .     .    .       .  .  :.:X;;tttX@S.888SX88:8888tS    .     .   . .   .     \n" +
+                "     .   .    . .  .        :;@ t8t8@8X8;  8X8S888:XtS     .  .         .   . . \n" +
+                "  .    .   .     .    .    . t88%.88SSS8;888ttX888t88; .    .   . .  .    .     \n" +
+                "   .  .     .  .   .   . .  .S888@88..8 8:t8@88 888@ .");}}

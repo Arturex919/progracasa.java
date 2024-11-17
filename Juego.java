@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Juego {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+
         // entero para eleccion de personaje//
         int personajes;
 
@@ -1285,16 +1286,15 @@ public class Juego {
                                                         }
                                                         default -> System.out.println("Opción no reconocida");
                                                     }
-                                                    ronda++;
+
                                                 }
-                                              if (!salir && fin_del_juego) {
-                                                  ronda++;
                                               }
 
-                                            }
+
                                         }
 
                                     }
+                                    ronda++; // ronda y tema de vida //
                                 }
 
                             }

@@ -11,209 +11,324 @@ public class vspc {
 
         // Variables generales
         int pc, multiplayer, juego;
-        int ataquePc, defensaPc, velocidadPc, lifepointPc,jugador1pc;
-        int ataqueJugador2 = 0, defensaJugador2 = 0, velocidadJugador2 = 0, lifepoint2 = 0;
-
+        int velocidadPc=0, ataquePc=0, defensaPc=0, lifepointPc = 0;
+        int velocidadCpu = 0, ataqueCpu = 0, defensaCpu = 0, lifepointCpu = 0;
+        int jugador1pc, jugadorCpu;
+        boolean caracteristicasCorrectas = false;
+        int personajes;
         System.out.println("Seleccione la forma en la que quiere jugar:");
         System.out.println("1. Jugar contra la máquina");
         System.out.println("2. Multiplayer");
         System.out.print("Elija (1 o 2): ");
         juego = in.nextInt();
 
+
         if (juego == 1) {
             // Variables para el Jugador 1 (Usuario)
-            boolean caracteristicasCorrectas;
-            int jugador_1 = 0;
-
+            System.out.println("##############################################################################\n" +
+                    "#░█▀▄░▀█▀░█▀▀░█▀█░█░█░█▀▀░█▀█░▀█▀░█▀▄░█▀█░█▀▀░░░█▀█░█░░░░░▀▀█░█░█░█▀▀░█▀▀░█▀█#\n" +
+                    "#░█▀▄░░█░░█▀▀░█░█░▀▄▀░█▀▀░█░█░░█░░█░█░█░█░▀▀█░░░█▀█░█░░░░░░░█░█░█░█▀▀░█░█░█░█#\n" +
+                    "#░▀▀░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░░░▀░▀░▀▀▀░░░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀#\n" +
+                    "##############################################################################");
+            System.out.println("");
+            String personajepc = "";
+            String habilidad_finalpc = "";
             do {
-                caracteristicasCorrectas = true;
+                System.out.println("Seleccione a su personaje");
+                System.out.println("1. Destructor (Alta defensa y vida, ataque medio, velocidad baja)");
+                System.out.println("2. El Sherk`s (Balanceado, pero más fuerte que los demás)");
+                System.out.println("3. Kong's(Ataque alto, velocidad media, defensa baja, vida baja)");
+                System.out.println("4.El capo(Velocidad media, ataque alto, defensa media, vida media)");
 
-                // Ingreso de atributos del Jugador 1
-                System.out.println("Ingrese la velocidad del Jugador 1 (1 a 200): ");
-                velocidadPc = in.nextInt();
-                while (velocidadPc > 200 || velocidadPc < 1) {
-                    System.out.println("Error: la velocidad debe estar entre 1 y 200. Intente de nuevo:");
-                    velocidadPc = in.nextInt();
-                }
-
-                System.out.println("Ingrese el ataque del Jugador 1 (1 a 200): ");
-                ataquePc = in.nextInt();
-                while (ataquePc > 200 || ataquePc < 1) {
-                    System.out.println("Error: el ataque debe estar entre 1 y 200. Intente de nuevo:");
-                    ataquePc = in.nextInt();
-                }
-
-                System.out.println("Ingrese la defensa del Jugador 1 (1 a 200): ");
-                defensaPc = in.nextInt();
-                while (defensaPc > 200 || defensaPc < 1) {
-                    System.out.println("Error: la defensa debe estar entre 1 y 200. Intente de nuevo:");
-                    defensaPc = in.nextInt();
-                }
-
-                System.out.println("Ingrese la vida del Jugador 1 (1 a 200): ");
-                lifepointPc = in.nextInt();
-                while (lifepointPc > 200 || lifepointPc < 1) {
-                    System.out.println("Error: la vida debe estar entre 1 y 200. Intente de nuevo:");
-                    lifepointPc = in.nextInt();
-                }
-
-                // Verificar si la suma de los atributos no excede el límite
-                jugador1pc = velocidadPc + ataquePc + defensaPc + lifepointPc;
-                if (jugador_1 > 500) {
-                    System.out.println("ERROR: La suma de los atributos no puede exceder los 500 puntos.");
-                    caracteristicasCorrectas = false;
-                }
-
-            } while (!caracteristicasCorrectas);
-
-            System.out.println("FELICIDADES, tu personaje tiene un total de: " + jugador1pc + " puntos.");
-
-            boolean salir = false;
-            while (!salir) {
-                System.out.println("¿Qué deseas hacer ahora?");
-                System.out.println("1. Ver atributos del personaje");
-                System.out.println("2. Corregir los atributos del personaje");
-                System.out.println("3. Continuar al siguiente personaje");
-                System.out.println("4. Salir del juego");
-                int opcion = in.nextInt();
-
-                switch (opcion) {
+                personajes = in.nextInt();
+                switch (personajes) {
                     case 1 -> {
-                        // Mostrar los atributos del Jugador 1
-                        System.out.println("Atributos del Jugador 1:");
-                        System.out.println("=====================================================");
-                        System.out.println("⚡" + "Velocidad:" + velocidadPc + "P");
-                        System.out.println("⚔️" + "Ataque:" + ataquePc + "P");
-                        System.out.println("🛡️" + "Defensa:" + defensaPc + "P");
-                        System.out.println("❤️" + "Vida:" + lifepointPc + "P");
-                        System.out.println("El total de puntos del Jugador 1 es : " + jugador1pc);
+                        personajepc = "Destructor";
+                        System.out.println("DESTRUIR EL MUNDO QUIERO YO");
+                        System.out.println("GRAAHHHHHWWW");
+                        System.out.println("─────────▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄─────────\n" +
+                                "───────▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄───────\n" +
+                                "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                "──────▐▒▒▒███▒▒▒▒▒▒▒▒███▒▒▒▌──────\n" +
+                                "▄▄────▐▒▒▒███▒▒▒▒▒▒▒▒███▒▒▒▌────▄▄\n" +
+                                "▌▒▀▄──▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──▄▀▒▐\n" +
+                                "▌▒▒▒▀▄█▒▒▒▄▀▄▄▀▀▄▄▀▀▄▄▀▄▒▒▒█▄▀▒▒▒▐\n" +
+                                "▀▄▒▒▒▒▐▒▒▐▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌▒▒▌▒▒▒▒▄▀\n" +
+                                "──▀▄▒▒▐▒▒▐▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌▒▒▌▒▒▄▀──\n" +
+                                "────▀▄▐▒▒▐▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌▒▒▌▄▀────\n" +
+                                "──────█▒▒▐▄▀▄▀▀▄▄▀▀▄▄▀▀▄▌▒▒█──────\n" +
+                                "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                "──────▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌──────\n" +
+                                "──────▐▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▌──────\n" +
+                                "──────▐▒▒▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓▒▒▌──────\n" +
+                                "──────▐▒▒▒▒▒▒▓▓▄▀▀▄▓▓▒▒▒▒▒▒▌──────\n" +
+                                "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
+                                "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
+                                "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
+                                "──────▐▒▒▒▒▒▒▒▒▌──▐▒▒▒▒▒▒▒▒▌──────\n" +
+                                "───────▀▀▀▀▀▀▀▀────▀▀▀▀▀▀▀▀──────");
+                        velocidadPc = 50;
+                        ataquePc = 60;
+                        defensaPc = 150;
+                        lifepointPc = 180;
+                        habilidad_finalpc = "Habilidad Final:Veneno-Veneno";
                     }
-
                     case 2 -> {
-                        // Opción para corregir atributos
-                        boolean corregirpc = false;
-                        while (!corregirpc) {
-                            System.out.println("¿Qué atributo deseas corregir?");
-                            System.out.println("1. Velocidad");
-                            System.out.println("2. Ataque");
-                            System.out.println("3. Defensa");
-                            System.out.println("4. Vida");
-                            System.out.println("5. Regresar al menú");
-                            int atributo = in.nextInt();
-
-                            switch (atributo) {
-                                case 1 -> {
-                                    System.out.println("Ingrese la nueva velocidad (1 a 200):");
-                                    velocidadPc = in.nextInt();
-                                    while (velocidadPc > 200 || velocidadPc < 1) {
-                                        System.out.println("La velocidad no puede ser mayor de 200 ni menor que 1.");
-                                        System.out.println("Intente de nuevo");
-                                        System.out.print("Ingrese la velocidad del jugador : ");
-                                        velocidadPc = in.nextInt();
-                                    }
-                                }
-                                case 2 -> {
-                                    System.out.println("Ingrese el nuevo ataque (1 a 200):");
-                                    ataquePc = in.nextInt();
-                                    while (ataquePc > 200 || ataquePc < 1) {
-                                        System.out.println("el ataque no puede ser mayor de 200 ni menor que 1.");
-                                        System.out.println("Intente de nuevo");
-                                        System.out.print("Ingrese el ataque del jugador : ");
-                                        ataquePc = in.nextInt();
-                                    }
-                                }
-                                case 3 -> {
-                                    System.out.println("Ingrese la nueva defensa (1 a 200):");
-                                    defensaPc = in.nextInt();
-                                    while (defensaPc > 200 || defensaPc < 1) {
-                                        System.out.println("La defensa no puede ser mayor de 200 ni menor que 1.");
-                                        System.out.println("Intente de nuevo");
-                                        System.out.print("Ingrese la defensa del jugador 2: ");
-                                        defensaPc = in.nextInt();
-                                    }
-                                }
-                                    case 4 -> {
-                                        System.out.println("Ingrese la nueva vida (entre 1 y 200): ");
-                                        lifepointPc = in.nextInt();
-                                        while (lifepointPc > 200 || lifepointPc < 1) {
-                                            System.out.println("la vida no puede ser mayor de 200 ni menor que 1.");
-                                            System.out.println("Intente de nuevo");
-                                            System.out.println("ingrese la vida del jugador 2");
-                                            lifepointPc = in.nextInt();
-                                        }
-                                    }
-                                case 5 -> {
-                                    System.out.println("No se realizo ningun cambio");// Salir de corrección
-                                }
-                                default -> System.out.println("Opción no válida.");
-                            }
-                        }
+                        personajepc = "El mamado";
+                        System.out.println("tienen aceite?");
+                        System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠀⠀⠀⢀⣴⠟⠉⠀⠀⠀⠈⠻⣦⡀⠀⠀⠀⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣷⣀⢀⣾⠿⠻⢶⣄⠀⠀⣠⣶⡿⠶⣄⣠⣾⣿⠗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⢻⣿⣿⡿⣿⠿⣿⡿⢼⣿⣿⡿⣿⣎⡟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⡟⠉⠛⢛⣛⡉⠀⠀⠙⠛⠻⠛⠑⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣧⣤⣴⠿⠿⣷⣤⡤⠴⠖⠳⣄⣀⣹⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣀⣟⠻⢦⣀⡀⠀⠀⠀⠀⣀⡈⠻⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⡿⠉⡇⠀⠀⠛⠛⠛⠋⠉⠉⠀⠀⠀⠹⢧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⡟⠀⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠃⠀⠈⠑⠪⠷⠤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⣿⣿⣦⣼⠛⢦⣤⣄⡀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠑⠢⡀⠀⠀⠀⠀⠀\n" +
+                                "⠀⠀⠀⠀⠀⠀⠀⢀⣠⠴⠲⠖⠛⠻⣿⡿⠛⠉⠉⠻⠷⣦⣽⠿⠿⠒⠚⠋⠉⠁⡞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢦⠀⠀⠀⠀\n" +
+                                "⠀⠀⠀⠀⠀⢀⣾⠛⠁⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠤⠒⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢣⠀⠀⠀\n" +
+                                "⠀⠀⠀⠀⣰⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣑⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡇⠀⠀\n" +
+                                "⠀⠀⠀⣰⣿⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣧⣄⠀⠀⠀⠀⠀⠀⢳⡀⠀\n" +
+                                "⠀⠀⠀⣿⡾⢿⣀⢀⣀⣦⣾⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⣫⣿⡿⠟⠻⠶⠀⠀⠀⠀⠀⢳⠀\n" +
+                                "⠀⠀⢀⣿⣧⡾⣿⣿⣿⣿⣿⡷⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⢀⡴⢿⣿⣧⠀⡀⠀⢀⣀⣀⢒⣤⣶⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇\n" +
+                                "⠀⠀⡾⠁⠙⣿⡈⠉⠙⣿⣿⣷⣬⡛⢿⣶⣶⣴⣶⣶⣶⣤⣤⠤⠾⣿⣿⣿⡿⠿⣿⠿⢿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇\n" +
+                                "⠀⣸⠃⠀⠀⢸⠃⠀⠀⢸⣿⣿⣿⣿⣿⣿⣷⣾⣿⣿⠟⡉⠀⠀⠀⠈⠙⠛⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇\n" +
+                                "⠀⣿⠀⠀⢀⡏⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⠿⠿⠛⠛⠉⠁⠀⠀⠀⠀⠀⠉⠠⠿⠟⠻⠟⠋⠉⢿⣿⣦⡀⢰⡀⠀⠀⠀⠀⠀⠀⠁\n" +
+                                "⢀⣿⡆⢀⡾⠀⠀⠀⠀⣾⠏⢿⣿⣿⣿⣯⣙⢷⡄⠀⠀⠀⠀⠀⢸⡄⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣿⣻⢿⣷⣀⣷⣄⠀⠀⠀⠀⢸⠀\n" +
+                                "⢸⠃⠠⣼⠃⠀⠀⣠⣾⡟⠀⠈⢿⣿⡿⠿⣿⣿⡿⠿⠿⠿⠷⣄⠈⠿⠛⠻⠶⢶⣄⣀⣀⡠⠈⢛⡿⠃⠈⢿⣿⣿⡿⠀⠀⠀⠀⠀⡀\n" +
+                                "⠟⠀⠀⢻⣶⣶⣾⣿⡟⠁⠀⠀⢸⣿⢅⠀⠈⣿⡇⠀⠀⠀⠀⠀⣷⠂⠀⠀⠀⠀⠐⠋⠉⠉⠀⢸⠁⠀⠀⠀⢻⣿⠛⠀⠀⠀⠀⢀⠇\n" +
+                                "⠀⠀⠀⠀⠹⣿⣿⠋⠀⠀⠀⠀⢸⣧⠀⠰⡀⢸⣷⣤⣤⡄⠀⠀⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⡾⠀⠀⠀⠀⠀⠀⢼⡇\n" +
+                                "⠀⠀⠀⠀⠀⠙⢻⠄⠀⠀⠀⠀⣿⠉⠀⠀⠈⠓⢯⡉⠉⠉⢱⣶⠏⠙⠛⠚⠁⠀⠀⠀⠀⠀⣼⠇⠀⠀⠀⢀⡇⠀⠀⠀⠀⠀⠀⠀⡇\n" +
+                                "⠀⠀⠀⠀⠀⠀⠻⠄⠀⠀⠀⢀⣿⠀⢠⡄⠀⠀⠀⣁⠁⡀⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⢀⣐⡟⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⢠⡇");
+                        velocidadPc = 120;
+                        ataquePc = 130;
+                        defensaPc = 150;
+                        lifepointPc = 180;
+                        habilidad_finalpc = "Habilidad Final:seductor ";
                     }
-
                     case 3 -> {
-                        // Continuar al combate con Jugador 2
-                        System.out.println("Selecciona la dificultad para el Jugador 2 (computadora):");
-                        System.out.println("1. Fácil");
-                        System.out.println("2. Medio");
-                        System.out.println("3. Difícil");
-                        System.out.println("4. Kaos");
-                        System.out.println("5. Al azar");
-                        int dificultad = in.nextInt();
+                        personajepc = "Kong`s";
+                        System.out.println("Perame hommies");
+                        System.out.println("──────▄████████▄────────\n" +
+                                "─────────────▄█▀▒▒▒▒▒▒▒▀██▄──────\n" +
+                                "───────────▄█▀▒▒▒▒▒▒▒▒▒▒▒██──────\n" +
+                                "─────────▄█▀▒▒▒▒▒▒▄▒▒▒▒▒▒▐█▌─────\n" +
+                                "────────▄█▒▒▒▒▒▒▒▒▀█▒▒▒▒▒▐█▌─────\n" +
+                                "───────▄█▒▒▒▒▒▒▒▒▒▒▀█▒▒▒▄██──────\n" +
+                                "──────▄█▒▒▒▒▒▒▒▒▒▒▒▒▀█▒▄█▀█▄─────\n" +
+                                "─────▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▀▒▒▒█▄────\n" +
+                                "────▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▄───\n" +
+                                "───▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▄──\n" +
+                                "──▄█▒▒▒▄██████▄▒▒▒▒▄█████▄▒▒▒▒█──\n" +
+                                "──█▒▒▒█▀░░░░░▀█─▒▒▒█▀░░░░▀█▒▒▒█──\n" +
+                                "──█▒▒▒█░░▄░░░░▀████▀░░░▄░░█▒▒▒█──\n" +
+                                "▄███▄▒█▄░▐▀▄░░░░░░░░░▄▀▌░▄█▒▒███▄\n" +
+                                "█▀░░█▄▒█░▐▐▀▀▄▄▄─▄▄▄▀▀▌▌░█▒▒█░░▀█\n" +
+                                "█░░░░█▒█░▐▐──▄▄─█─▄▄──▌▌░█▒█░░░░█\n" +
+                                "█░▄░░█▒█░▐▐▄─▀▀─█─▀▀─▄▌▌░█▒█░░▄░█\n" +
+                                "█░░█░█▒█░░▌▄█▄▄▀─▀▄▄█▄▐░░█▒█░█░░█\n" +
+                                "█▄░█████████▀░░▀▄▀░░▀█████████░▄█\n" +
+                                "─██▀░░▄▀░░▀░░▀▄░░░▄▀░░▀░░▀▄░░▀██\n" +
+                                "██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██\n" +
+                                "█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█\n" +
+                                "█░▄░░░░░░░░░░░░░░░░░░░░░░░░░░░▄░█\n" +
+                                "█░▀█▄░░░░░░░░░░░░░░░░░░░░░░░▄█▀░█\n" +
+                                "█░░█▀███████████████████████▀█░░█\n" +
+                                "█░░█────█───█───█───█───█────█░░█\n" +
+                                "█░░▀█───█───█───█───█───█───█▀░░█\n" +
+                                "█░░░▀█▄▄█▄▄▄█▄▄▄█▄▄▄█▄▄▄█▄▄█▀░░░█\n" +
+                                "▀█░░░█──█───█───█───█───█──█░░░█▀\n" +
+                                "─▀█░░▀█▄█───█───█───█───█▄█▀░░█▀─\n" +
+                                "──▀█░░░▀▀█▄▄█───█───█▄▄█▀▀░░░█▀──\n" +
+                                "───▀█░░░░░▀▀█████████▀▀░░░░░█▀───\n" +
+                                "────▀█░░░░░▄░░░░░░░░░▄░░░░░█▀────\n" +
+                                "─────▀██▄░░░▀▀▀▀▀▀▀▀▀░░░▄██▀─────\n" +
+                                "────────▀██▄▄░░░░░░░▄▄██▀────────\n" +
+                                "───────────▀▀███████▀▀───────────");
+                        velocidadPc = 150;
+                        ataquePc = 150;
+                        defensaPc = 70;
+                        lifepointPc = 100;
+                        habilidad_finalpc = "Habilidad Final: Llama a sus Gangs";
+                    }
+                    case 4 -> {
+                        personajepc = "El capo";
+                        System.out.println("El mas capo de la zona");
+                        System.out.println("⬜⬜⬜⬜⬜⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜\n" +
+                                "⬜⬜⬜⬛⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛⬛⬜⬜⬜\n" +
+                                "⬜⬜⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛⬜⬜\n" +
+                                "⬜⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛⬛⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛⬜\n" +
+                                "⬜⬛\uD83D\uDFE7\uD83D\uDFE7⬛⬛\uD83D\uDFEB\uD83D\uDFEB\uD83D\uDFEB⬛⬛\uD83D\uDFE7\uD83D\uDFE7⬛⬜\n" +
+                                "⬛\uD83D\uDFE7\uD83D\uDFE7⬛\uD83D\uDFEB⬜⬜\uD83C\uDFFC⬜⬜\uD83D\uDFEB⬛\uD83D\uDFE7\uD83D\uDFE7⬛\n" +
+                                "⬛\uD83D\uDFE7⬛\uD83D\uDFEB⬜⬜⬜⬜⬜⬜⬜\uD83D\uDFEB⬛\uD83D\uDFE7⬛\n" +
+                                "⬛\uD83D\uDFE7⬛\uD83D\uDFEB⬜⬜⬛⬜⬛⬜⬜\uD83D\uDFEB⬛\uD83D\uDFE7⬛\n" +
+                                "⬛\uD83D\uDFE7⬛\uD83D\uDFEB⬜⬜⬜⬜⬜⬜⬜\uD83D\uDFEB⬛\uD83D\uDFE7⬛\n" +
+                                "⬛\uD83D\uDFE7⬛\uD83D\uDFEB\uD83D\uDFEB⬜⬜\uD83C\uDFFC⬜⬜\uD83D\uDFEB\uD83D\uDFEB⬛\uD83D\uDFE7⬛\n" +
+                                "⬜⬛\uD83D\uDFE7⬛\uD83D\uDFEB\uD83D\uDFEB\uD83C\uDFFC\uD83C\uDFFC\uD83C\uDFFC\uD83D\uDFEB\uD83D\uDFEB⬛\uD83D\uDFE7⬛⬜\n" +
+                                "⬜⬛\uD83D\uDFE7\uD83D\uDFE7⬛⬛⬛⬛⬛⬛⬛\uD83D\uDFE7\uD83D\uDFE7⬛⬜\n" +
+                                "⬜⬜⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛⬜⬜\n" +
+                                "⬜⬜⬛⬛⬛\uD83D\uDFE7⬛\uD83D\uDFE7⬛\uD83D\uDFE7⬛⬛⬛⬜⬜\n" +
+                                "⬜⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛⬛⬛⬛⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛⬜\n" +
+                                "⬛\uD83D\uDFE7\uD83D\uDFE7⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛\uD83D\uDFE7\uD83D\uDFE7⬛\n" +
+                                "⬛⬛⬛⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛⬛⬛⬛\n" +
+                                "⬛\uD83D\uDFEB\uD83D\uDFEB⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛\uD83D\uDFEB\uD83D\uDFEB⬛\n" +
+                                "⬜⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜\n" +
+                                "⬜⬜⬜⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛\uD83D\uDFE7\uD83D\uDFE7\uD83D\uDFE7⬛⬜⬜⬜\n" +
+                                "⬜⬜⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜");
+                        velocidadPc = 100;
+                        ataquePc = 120;
+                        defensaPc = 100;
+                        lifepointPc = 150;
+                        habilidad_finalpc = "ELmascapito";
+                    }
+                    default -> {
+                        System.out.println("opcion invalida");
+                    }
+                }
+            } while (personajes < 1 || personajes > 4) ;
+            System.out.println("Has seleccionado: " + personajes);
+            System.out.println("Habilidad Final: " + habilidad_finalpc);
+                System.out.println("Selecciona la dificultad para el Jugador 2 (computadora):");
+                System.out.println("1. Fácil\n2. Medio\n3. Difícil\n4. Kaos");
+                int dificultad = in.nextInt();
+                while (dificultad < 1 || dificultad > 4) {
+                    System.out.println("Error: Seleccione una dificultad válida (1 a 4):");
+                    dificultad = in.nextInt();
+                }
 
-                        switch (dificultad) {
-                            case 1 -> ataqueJugador2 = defensaJugador2 = velocidadJugador2 = lifepoint2 = 50;
-                            case 2 -> ataqueJugador2 = defensaJugador2 = velocidadJugador2 = lifepoint2 = 100;
-                            case 3 -> ataqueJugador2 = defensaJugador2 = velocidadJugador2 = lifepoint2 = 150;
-                            case 4 -> ataqueJugador2 = defensaJugador2 = velocidadJugador2 = lifepoint2 = 200;
-                            case 5 -> {
-                                int dificultadAleatoria = (int) (Math.random() * 4) + 1;
-                                System.out.println("Se ha asignado dificultad " + dificultadAleatoria);
-                                switch (dificultadAleatoria) {
-                                    case 1 -> ataqueJugador2 = defensaJugador2 = velocidadJugador2 = lifepoint2 = 50;
-                                    case 2 -> ataqueJugador2 = defensaJugador2 = velocidadJugador2 = lifepoint2 = 100;
-                                    case 3 -> ataqueJugador2 = defensaJugador2 = velocidadJugador2 = lifepoint2 = 150;
-                                    case 4 -> ataqueJugador2 = defensaJugador2 = velocidadJugador2 = lifepoint2 = 200;
-                                }
-                            }
-                            default ->
-                                    ataqueJugador2 = defensaJugador2 = velocidadJugador2 = lifepoint2 = 50; // Valores por defecto
+                if (dificultad == 1) {
+                    velocidadCpu = 50;
+                    ataqueCpu = 50;
+                    defensaCpu = 50;
+                    lifepointCpu = 50;
+                } else if (dificultad == 2) {
+                    velocidadCpu = 100;
+                    ataqueCpu = 100;
+                    defensaCpu = 100;
+                    lifepointCpu = 100;
+                } else if (dificultad == 3) {
+                    velocidadCpu = 150;
+                    ataqueCpu = 150;
+                    defensaCpu = 150;
+                    lifepointCpu = 125;
+                } else {
+                    velocidadCpu = 130;
+                    ataqueCpu = 130;
+                    defensaCpu = 130;
+                    lifepointCpu = 130;
+                }
+
+                int turno = (velocidadPc >= velocidadCpu) ? 1 : 2;
+                int ronda = 1;
+                boolean finDelJuego = false;
+
+                while (!finDelJuego) {
+                    System.out.println("\n---------- Ronda " + ronda + " --------");
+                    System.out.println("Vida Jugador 1: [" + "❤️".repeat((lifepointPc * 20) / 200) + "] " + lifepointPc);
+                    System.out.println("Vida Jugador 2: [" + "❤️".repeat((lifepointCpu * 20) / 200) + "] " + lifepointCpu);
+
+                    if (turno == 1) {
+                        // Turno del jugador
+                        System.out.println("Jugador 1: ¿Qué deseas hacer? (1. Atacar, 2. Defender)");
+                        int accion = in.nextInt();
+
+                        if (accion == 1) {
+                            int danio = Math.max(10, ataquePc - (defensaCpu / 2));
+                            lifepointCpu -= danio;
+                            System.out.println("Atacaste al CPU y le quitaste " + danio + " puntos de vida.");
+                        } else if (accion == 2) {
+                            defensaPc += 10;
+                            System.out.println("Has mejorado tu defensa.");
+                        } else {
+                            System.out.println("Acción inválida.");
                         }
-
-                        // Inicio del combate
-                        System.out.println("Combate iniciado...");
-                        boolean combateTerminado = false;
-                        int vidaJugador1 = lifepointPc;
-                        int vidaJugador2 = lifepoint2;
-
-                        while (!combateTerminado) {
-                            boolean jugador1AtacaPrimero = velocidadPc > velocidadJugador2
-                                    || (velocidadPc == velocidadJugador2 && Math.random() > 0.5);
-
-                            if (jugador1AtacaPrimero) {
-                                int daño = Math.max(ataquePc - defensaJugador2, 0);
-                                vidaJugador2 -= daño;
-                                System.out.println("Jugador 1 ataca y causa " + daño + " de daño. Vida Jugador 2: " + vidaJugador2);
-                                combateTerminado = vidaJugador2 <= 0;
-                                if (combateTerminado) {
-                                    System.out.println("¡Jugador 1 ha ganado!");
-                                }
-                            } else {
-                                int daño = Math.max(ataqueJugador2 - defensaPc, 0);
-                                vidaJugador1 -= daño;
-                                System.out.println("Jugador 2 ataca y causa " + daño + " de daño. Vida Jugador 1: " + vidaJugador1);
-                                combateTerminado = vidaJugador1 <= 0;
-                                if (combateTerminado) {
-                                    System.out.println("¡Jugador 2 ha ganado!");
-                                }
-                            }
+                        turno = 2;
+                    } else {
+                        // Turno del CPU
+                        int accionCpu = random.nextInt(2) + 1;
+                        if (accionCpu == 1) {
+                            int danio = Math.max(10, ataqueCpu - (defensaPc / 2));
+                            lifepointPc -= danio;
+                            System.out.println("El CPU te atacó y te quitó " + danio + " puntos de vida.");
+                        } else {
+                            defensaCpu += 10;
+                            System.out.println("El CPU mejoró su defensa.");
                         }
+                        turno = 1;
                     }
 
-                    case 4 -> salir = true;
-
-                    default -> System.out.println("Opción no válida.");
+                    // Verificar fin del juego
+                    if (lifepointPc <= 0 || lifepointCpu <= 0) {
+                        finDelJuego = true;
+                        if (lifepointPc > lifepointCpu) {
+                            System.out.println("¡+==================================================================================================================================================+\n" +
+                                    "|███████╗██╗              ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗     ██████╗        ██╗  ██╗ █████╗     ███████╗██╗██████╗  ██████╗ |\n" +
+                                    "|██╔════╝██║              ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗    ╚════██╗       ██║  ██║██╔══██╗    ██╔════╝██║██╔══██╗██╔═══██╗|\n" +
+                                    "|█████╗  ██║              ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝     █████╔╝       ███████║███████║    ███████╗██║██║  ██║██║   ██║|\n" +
+                                    "|██╔══╝  ██║         ██   ██║██║   ██║██║   ██║██╔══██║██║  ██║██║   ██║██╔══██╗    ██╔═══╝        ██╔══██║██╔══██║    ╚════██║██║██║  ██║██║   ██║|\n" +
+                                    "|███████╗███████╗    ╚█████╔╝╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║  ██║    ███████╗       ██║  ██║██║  ██║    ███████║██║██████╔╝╚██████╔╝|\n" +
+                                    "|╚══════╝╚══════╝     ╚════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝    ╚══════╝       ╚═╝  ╚═╝╚═╝  ╚═╝    ╚══════╝╚═╝╚═════╝  ╚═════╝ |\n" +
+                                    "|                                                                                                                                                  |\n" +
+                                    "|    ██████╗ ███████╗██████╗ ██████╗  ██████╗ ████████╗ █████╗ ██████╗  ██████╗ ██╗                                                                |\n" +
+                                    "|    ██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔═══██╗╚══██╔══╝██╔══██╗██╔══██╗██╔═══██╗██║                                                                |\n" +
+                                    "|    ██║  ██║█████╗  ██████╔╝██████╔╝██║   ██║   ██║   ███████║██║  ██║██║   ██║██║                                                                |\n" +
+                                    "|    ██║  ██║██╔══╝  ██╔══██╗██╔══██╗██║   ██║   ██║   ██╔══██║██║  ██║██║   ██║╚═╝                                                                |\n" +
+                                    "|    ██████╔╝███████╗██║  ██║██║  ██║╚██████╔╝   ██║   ██║  ██║██████╔╝╚██████╔╝██╗                                                                |\n" +
+                                    "|    ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝                                                                |\n" +
+                                    "|                                                                                                                                                  |\n" +
+                                    "|███████╗██╗              ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗      ██╗                                                           |\n" +
+                                    "|██╔════╝██║              ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗    ███║                                                           |\n" +
+                                    "|█████╗  ██║              ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝    ╚██║                                                           |\n" +
+                                    "|██╔══╝  ██║         ██   ██║██║   ██║██║   ██║██╔══██║██║  ██║██║   ██║██╔══██╗     ██║                                                           |\n" +
+                                    "|███████╗███████╗    ╚█████╔╝╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║  ██║     ██║                                                           |\n" +
+                                    "|╚══════╝╚══════╝     ╚════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝     ╚═╝                                                           |\n" +
+                                    "|                                                                                                                                                  |\n" +
+                                    "| ██████╗  █████╗ ███╗   ██╗ █████╗                                                                                                                |\n" +
+                                    "|██╔════╝ ██╔══██╗████╗  ██║██╔══██╗                                                                                                               |\n" +
+                                    "|██║  ███╗███████║██╔██╗ ██║███████║                                                                                                               |\n" +
+                                    "|██║   ██║██╔══██║██║╚██╗██║██╔══██║                                                                                                               |\n" +
+                                    "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║      ");
+                        } else {
+                            System.out.println("+==============================================================================================================================================+\n" +
+                                    "|███████╗██╗              ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗      ██╗    ██╗  ██╗ █████╗     ███████╗██╗██████╗  ██████╗    |\n" +
+                                    "|██╔════╝██║              ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗    ███║    ██║  ██║██╔══██╗    ██╔════╝██║██╔══██╗██╔═══██╗   |\n" +
+                                    "|█████╗  ██║              ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝    ╚██║    ███████║███████║    ███████╗██║██║  ██║██║   ██║   |\n" +
+                                    "|██╔══╝  ██║         ██   ██║██║   ██║██║   ██║██╔══██║██║  ██║██║   ██║██╔══██╗     ██║    ██╔══██║██╔══██║    ╚════██║██║██║  ██║██║   ██║   |\n" +
+                                    "|███████╗███████╗    ╚█████╔╝╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║  ██║     ██║    ██║  ██║██║  ██║    ███████║██║██████╔╝╚██████╔╝   |\n" +
+                                    "|╚══════╝╚══════╝     ╚════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝     ╚═╝    ╚═╝  ╚═╝╚═╝  ╚═╝    ╚══════╝╚═╝╚═════╝  ╚═════╝    |\n" +
+                                    "|                                                                                                                                              |\n" +
+                                    "|██████╗ ███████╗██████╗ ██████╗  ██████╗ ████████╗ █████╗ ██████╗  ██████╗ ██╗                                                                |\n" +
+                                    "|██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔═══██╗╚══██╔══╝██╔══██╗██╔══██╗██╔═══██╗██║                                                                |\n" +
+                                    "|██║  ██║█████╗  ██████╔╝██████╔╝██║   ██║   ██║   ███████║██║  ██║██║   ██║██║                                                                |\n" +
+                                    "|██║  ██║██╔══╝  ██╔══██╗██╔══██╗██║   ██║   ██║   ██╔══██║██║  ██║██║   ██║╚═╝                                                                |\n" +
+                                    "|██████╔╝███████╗██║  ██║██║  ██║╚██████╔╝   ██║   ██║  ██║██████╔╝╚██████╔╝██╗                                                                |\n" +
+                                    "|╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝                                                                |\n" +
+                                    "|                                                                                                                                              |\n" +
+                                    "|███████╗██╗              ██╗██╗   ██╗ ██████╗  █████╗ ██████╗  ██████╗ ██████╗     ██████╗                                                    |\n" +
+                                    "|██╔════╝██║              ██║██║   ██║██╔════╝ ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗    ╚════██╗                                                   |\n" +
+                                    "|█████╗  ██║              ██║██║   ██║██║  ███╗███████║██║  ██║██║   ██║██████╔╝     █████╔╝                                                   |\n" +
+                                    "|██╔══╝  ██║         ██   ██║██║   ██║██║   ██║██╔══██║██║  ██║██║   ██║██╔══██╗    ██╔═══╝                                                    |\n" +
+                                    "|███████╗███████╗    ╚█████╔╝╚██████╔╝╚██████╔╝██║  ██║██████╔╝╚██████╔╝██║  ██║    ███████╗                                                   |\n" +
+                                    "|╚══════╝╚══════╝     ╚════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝    ╚══════╝                                                   |\n" +
+                                    "|                                                                                                                                              |\n" +
+                                    "| ██████╗  █████╗ ███╗   ██╗ █████╗                                                                                                            |\n" +
+                                    "|██╔════╝ ██╔══██╗████╗  ██║██╔══██╗                                                                                                           |\n" +
+                                    "|██║  ███╗███████║██╔██╗ ██║███████║                                                                                                           |\n" +
+                                    "|██║   ██║██╔══██║██║╚██╗██║██╔══██║                                                                                                           |\n" +
+                                    "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║                                                                                                           |\n" +
+                                    "| ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝                                                                                                           |\n" +
+                                    "+=============================================");
+                        }
+                    }
+                    ronda++;
                 }
             }
-            System.out.println("Gracias por jugar. ¡Hasta la próxima!");
-            in.close();
-        }}}
+        }
+
+}
+
