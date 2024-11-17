@@ -629,7 +629,7 @@ public class Juego {
                                 int total_danio, total_danio2;
                                 Random random = new Random();
                                 int ronda = 1;
-                                boolean fin_del_juego = false;
+                                boolean fin_del_juego = true;
                                 //bool para turnos
                                 boolean turnoJugador1 = true;
                                 //creamos un int y un booleano critico para saber si esta acierta al punto si lo acierta
@@ -639,7 +639,7 @@ public class Juego {
                                 //creamos el while para determinar si el fin del juego es verdadero o no en caso de no
                                 //serlo sigue y en caso de que el juego haya acabado este sera true//
 
-                                while (!fin_del_juego) {
+                                while (fin_del_juego) {
                                     System.out.println("=================================================");
                                     System.out.println("----------Ronda--" + ronda + "--------");
                                     System.out.println("");
@@ -678,7 +678,7 @@ public class Juego {
                                         System.out.println("");
 
                                         if (turnoJugador1) {
-                                            while (!fin_del_juego) {
+                                            while (fin_del_juego) {
                                                 System.out.println("Player 1:");
                                                 System.out.println("¿Que deseas hacer?");
                                                 System.out.println("1.Atacar");
@@ -747,7 +747,7 @@ public class Juego {
                                                                             "|██║  ███╗███████║██╔██╗ ██║███████║                                                                                                               |\n" +
                                                                             "|██║   ██║██╔══██║██║╚██╗██║██╔══██║                                                                                                               |\n" +
                                                                             "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║      ");
-                                                                    fin_del_juego = true;
+                                                                    fin_del_juego = false;
                                                                 }
                                                             }
 
@@ -790,7 +790,7 @@ public class Juego {
                                                                             "|██║  ███╗███████║██╔██╗ ██║███████║                                                                                                               |\n" +
                                                                             "|██║   ██║██╔══██║██║╚██╗██║██╔══██║                                                                                                               |\n" +
                                                                             "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║      ");
-                                                                    fin_del_juego = true;
+                                                                    fin_del_juego = false;
                                                                 }
                                                             }
                                                             case 3 -> {
@@ -831,7 +831,7 @@ public class Juego {
                                                                             "|██║  ███╗███████║██╔██╗ ██║███████║                                                                                                               |\n" +
                                                                             "|██║   ██║██╔══██║██║╚██╗██║██╔══██║                                                                                                               |\n" +
                                                                             "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║      .");
-                                                                    fin_del_juego = true;
+                                                                    fin_del_juego = false;
                                                                 }
                                                             }
                                                             case 4 -> {
@@ -872,7 +872,7 @@ public class Juego {
                                                                             "|██║  ███╗███████║██╔██╗ ██║███████║                                                                                                               |\n" +
                                                                             "|██║   ██║██╔══██║██║╚██╗██║██╔══██║                                                                                                               |\n" +
                                                                             "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║      ");
-                                                                    fin_del_juego = true;
+                                                                    fin_del_juego = false;
                                                                 }
                                                             }
                                                             case 5 -> {
@@ -961,7 +961,7 @@ public class Juego {
                                                                     "|██║  ███╗███████║██╔██╗ ██║███████║                                                                                                               |\n" +
                                                                     "|██║   ██║██╔══██║██║╚██╗██║██╔══██║                                                                                                               |\n" +
                                                                     "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║      ");
-                                                            fin_del_juego = true;
+                                                            fin_del_juego =false;
                                                         }
                                                     }
                                                     case 4 -> {
@@ -980,7 +980,7 @@ public class Juego {
                                                 //compruena quien de los jugares tiene 0
                                                 if (lifepoint_2 <= 0) {
                                                     System.out.println("player 1 gana");
-                                                    fin_del_juego = true;
+                                                    fin_del_juego = false;
                                                     Barra = (lifepoint * 20) / 100; // Longitud proporcional de la barra de vida
                                                     for (int i = 0; i < 20; i++) {
                                                         if (i < Barra) {
@@ -1053,7 +1053,7 @@ public class Juego {
                                                                     System.out.println("Haz utilizado Mordedura,les has quitado al jugador 1 : " + total_danio + " vida");
                                                                     if (lifepoint <= 0) {
 
-                                                                        fin_del_juego = true;
+                                                                        fin_del_juego = false;
                                                                     }
                                                                 }
                                                                 case 2 -> {
@@ -1096,7 +1096,7 @@ public class Juego {
                                                                                 "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║                                                                                                           |\n" +
                                                                                 "| ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝                                                                                                           |\n" +
                                                                                 "+=============================================");
-                                                                        fin_del_juego = true;
+                                                                        fin_del_juego = false;
                                                                     }
                                                                 }
 
@@ -1141,7 +1141,7 @@ public class Juego {
                                                                                 "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║                                                                                                           |\n" +
                                                                                 "| ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝                                                                                                           |\n" +
                                                                                 "+=============================================");
-                                                                        fin_del_juego = true;
+                                                                        fin_del_juego = false;
                                                                     }
                                                                 }
                                                                 case 4 -> {
@@ -1184,7 +1184,7 @@ public class Juego {
                                                                                 "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║                                                                                                           |\n" +
                                                                                 "| ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝                                                                                                           |\n" +
                                                                                 "+=============================================");
-                                                                        fin_del_juego = true;
+                                                                        fin_del_juego = false;
                                                                     }
                                                                 }
                                                                 case 5 -> {
@@ -1276,17 +1276,18 @@ public class Juego {
                                                                         "|╚██████╔╝██║  ██║██║ ╚████║██║  ██║                                                                                                           |\n" +
                                                                         "| ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝                                                                                                           |\n" +
                                                                         "+=============================================");
-                                                                fin_del_juego = true;
+                                                                fin_del_juego = false;
                                                             }
                                                         }
                                                         case 4 -> {
                                                             System.out.println("Saliendo.....");
-                                                            fin_del_juego = true;
+                                                            fin_del_juego = false;
                                                         }
                                                         default -> System.out.println("Opción no reconocida");
                                                     }
+                                                    ronda++;
                                                 }
-                                              if (!salir && !fin_del_juego) {
+                                              if (!salir && fin_del_juego) {
                                                   ronda++;
                                               }
 
